@@ -1,3 +1,3 @@
 # PersonalityGPT
 
-Our project si the coolest.
+Our project is the coolest.
