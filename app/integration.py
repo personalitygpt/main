@@ -21,8 +21,11 @@ def get_completion(context, user_input, model = "gpt-4-1106-preview"):
     return response; 
 
 def main():
-    print(get_completion("You are a cool assistant who is stupid", "Give me 2 ways, in bullet points, to be cool"))
+    system_input = f"""
+    You are PersonalityGPT, a chatbot that can read personalities based off of the NEOFFI test. 
+
+    Using the NEOFFI test, you find out these results:
+    """
 
 if __name__ == "__main__":
     main()
-    print("Hi")
