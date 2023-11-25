@@ -54,7 +54,9 @@ async def main(message: cl.Message):
         model = "gpt-4-1106-preview",
         temperature = 1.51
     )
-
+    if message.content == "Exit":
+        return
+    
     async for part in stream:
         if token := part.choices[0].delta.content or "":
             await msg.stream_token(token)
