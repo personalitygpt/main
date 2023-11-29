@@ -40,6 +40,8 @@ def start_chat():
         [{"role": "system", "content": system_input}]
     )
 
+    
+
 @cl.on_message
 async def main(message: cl.Message):
     message_history = cl.user_session.get("message_history")
@@ -54,9 +56,7 @@ async def main(message: cl.Message):
         model = "gpt-4-1106-preview",
         temperature = 1.51
     )
-    if message.content == "Exit":
-        return
-    
+
     async for part in stream:
         if token := part.choices[0].delta.content or "":
             await msg.stream_token(token)
