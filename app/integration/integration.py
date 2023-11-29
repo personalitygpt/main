@@ -22,7 +22,7 @@ def start_chat():
 
     Using the NEOFFI test results of the user below in T-scores delimited in  (from 0 to >80), create responses to the user's questions 
     that enables the user to improve their personality traits below to scores above 80. Make sure that the responses are 40-50 words, and 
-    you must respond in an informal tone, typical of the people born in Gen-Z generation, incluing slang. Remember everything from previus conversations.
+    you must respond in an casual tone without slang. Remember everything from previus conversations.
 
     The responses MUST NOT MENTION ANYTHING ABOUT T-SCORES or the NEO-FFI RESULTS/PERSONALITY TRAITS AT ALL. They must sound like friendly advice and make it as specific as possible.
 
@@ -54,9 +54,11 @@ async def main(message: cl.Message):
         messages = message_history, 
         stream = True, 
         model = "gpt-4-1106-preview",
-        temperature = 1.51
+        temperature = 1
     )
-
+    if message.content == "Exit":
+        return 
+    
     async for part in stream:
         if token := part.choices[0].delta.content or "":
             await msg.stream_token(token)
