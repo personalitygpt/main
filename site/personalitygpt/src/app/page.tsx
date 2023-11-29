@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from ".../styles/Home.modules.css";
+import styles from "global.css";
 import {
   Aftertestmsg,
   Anallyze8,
