@@ -1,10 +1,20 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import {
-  NavBar,
-  HeroLayout3,
-  MarketingPricing,
-  ContactUs,
+  Aftertestmsg,
+  Anallyze8,
+  Brololmsg,
+  Bromeaningmsg,
+  Communiate9,
+  Component82,
+  Hellograymsg1,
+  History7,
+  Learningthemeaningofdifferentphrases,
+  LearnTheMeaningOfPhrasesRectangle,
+  MoreThan,
+  Phrases9,
+  Rectangle1,
+  Rectangle62,
 } from "../ui-components";
 
 export default function Home() {
@@ -13,10 +23,20 @@ export default function Home() {
       <Head>
         <title>Figma-to-code</title>
       </Head>
-      <NavBar />
-      <HeroLayout3 />
-      <MarketingPricing />
-      <ContactUs />
+      <Aftertestmsg />
+      <Anallyze8 />
+      <Brololmsg />
+      <Bromeaningmsg />
+      <Communiate9 />
+      <Component82 />
+      <Hellograymsg1 />
+      <History7 />
+      <Learningthemeaningofdifferentphrases />
+      <LearnTheMeaningOfPhrasesRectangle />
+      <MoreThan />
+      <Phrases9 />
+      <Rectangle1 />
+      <Rectangle62 />
     </div>
   );
 } 
