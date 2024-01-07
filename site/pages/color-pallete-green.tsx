@@ -5,20 +5,8 @@ import { useRouter } from "next/router";
 const ColorPalleteGreen: NextPage = () => {
   const router = useRouter();
 
-  const onRectangleClick = useCallback(() => {
-    router.push("/color-pallete-red");
-  }, [router]);
-
-  const onRectangleContainer1Click = useCallback(() => {
-    router.push("/color-pallete-blue");
-  }, [router]);
-
   const onRectangle2Click = useCallback(() => {
     router.push("/color-pallete-yellow");
-  }, [router]);
-
-  const onBackbtngreenContainerClick = useCallback(() => {
-    router.push("/profile-page");
   }, [router]);
 
   return (
@@ -33,16 +21,13 @@ const ColorPalleteGreen: NextPage = () => {
         <div className="absolute top-[463px] left-[609px] w-[29px] h-[29px]" />
         <div className="absolute top-[446px] left-[579px] w-[393px] h-[85px]">
           <div className="absolute h-[57.65%] w-full top-[21.18%] right-[0%] bottom-[21.18%] left-[0%]">
-            <div
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-whitesmoke-300 cursor-pointer"
-              onClick={onRectangleClick}
-            />
+            <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-whitesmoke-300" />
           </div>
           <div className="absolute h-full w-[5.85%] top-[0%] right-[5.6%] bottom-[0%] left-[88.55%]">
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/more-than2@2x.png"
+              src="/more-than@2x.png"
             />
           </div>
           <div className="absolute h-[24.71%] w-[13.99%] top-[35.29%] right-[63.61%] bottom-[40%] left-[22.39%]">
@@ -54,17 +39,14 @@ const ColorPalleteGreen: NextPage = () => {
         </div>
         <div className="absolute top-[393px] left-[609px] w-[29px] h-[29px]" />
         <div className="absolute top-[298px] left-[579px] w-[393px] h-[85px]">
-          <div
-            className="absolute h-[58.82%] w-full top-[21.18%] right-[0%] bottom-[20%] left-[0%] cursor-pointer"
-            onClick={onRectangleContainer1Click}
-          >
+          <div className="absolute h-[58.82%] w-full top-[21.18%] right-[0%] bottom-[20%] left-[0%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-whitesmoke-300" />
           </div>
           <div className="absolute h-full w-[5.85%] top-[0%] right-[5.6%] bottom-[0%] left-[88.55%]">
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/more-than2@2x.png"
+              src="/more-than@2x.png"
             />
           </div>
           <div className="absolute h-[24.71%] w-[15.52%] top-[36.47%] right-[62.85%] bottom-[38.82%] left-[21.63%]">
@@ -73,9 +55,9 @@ const ColorPalleteGreen: NextPage = () => {
             </div>
           </div>
           <img
-            className="absolute h-[34.12%] w-[7.38%] top-[32.94%] right-[86.26%] bottom-[32.94%] left-[6.36%] max-w-full overflow-hidden max-h-full"
+            className="absolute h-[34.12%] w-[7.38%] top-[32.94%] right-[86.26%] bottom-[32.94%] left-[6.36%] max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/ellipse-9.svg"
+            src="/ellipse-9@2x.png"
           />
         </div>
         <div className="absolute top-[368px] left-[584px] w-[393px] h-[85px]">
@@ -89,7 +71,7 @@ const ColorPalleteGreen: NextPage = () => {
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/more-than2@2x.png"
+              src="/more-than@2x.png"
             />
           </div>
           <div className="absolute h-[24.71%] w-[22.9%] top-[36.47%] right-[59.03%] bottom-[38.82%] left-[18.07%]">
@@ -109,15 +91,12 @@ const ColorPalleteGreen: NextPage = () => {
             </div>
           </div>
           <img
-            className="absolute h-full w-[8.36%] top-[0%] right-[29.97%] bottom-[0%] left-[61.67%] max-w-full overflow-hidden max-h-full"
+            className="absolute h-full w-[8.36%] top-[0%] right-[29.97%] bottom-[0%] left-[61.67%] max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/ellipse-10.svg"
+            src="/ellipse-10@2x.png"
           />
         </div>
-        <div
-          className="absolute top-[30px] left-[28px] w-[146px] h-[65px] cursor-pointer text-left"
-          onClick={onBackbtngreenContainerClick}
-        >
+        <div className="absolute top-[30px] left-[28px] w-[146px] h-[65px] text-left">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-lightgreen" />
           </div>
@@ -125,9 +104,6 @@ const ColorPalleteGreen: NextPage = () => {
             <div className="absolute top-[0%] left-[0%]">back</div>
           </div>
         </div>
-      </div>
-      <div className="absolute top-[0px] left-[0px] w-[1280px] h-[22px]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
       </div>
       <div className="absolute top-[332px] left-[-2px] w-[299px] h-[165px] text-31xl font-magra">
         <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">

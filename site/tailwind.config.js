@@ -71,6 +71,11 @@ module.exports = {
       "81xl": "100px",
       inherit: "inherit",
     },
+    screens: {
+      lg: {
+        max: "1200px",
+      },
+    },
   },
   corePlugins: {
     preflight: false,

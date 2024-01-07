@@ -1,42 +1,6 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const MainMenu: NextPage = () => {
-  const router = useRouter();
-
-  const onGroupIconClick = useCallback(() => {
-    router.push("/profile-page");
-  }, [router]);
-
-  const onRec29Click = useCallback(() => {
-    router.push("/login-page");
-  }, [router]);
-
-  const onRec7Click = useCallback(() => {
-    router.push("/learning-the-meaning-of-differ");
-  }, [router]);
-
-  const onAnalyzeContainerClick = useCallback(() => {
-    router.push("/analyze-a-conversation");
-  }, [router]);
-
-  const onViewhistoryContainerClick = useCallback(() => {
-    router.push("/view-history");
-  }, [router]);
-
-  const onRec28Click = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
-  const onRec10Click = useCallback(() => {
-    router.push("/different-traits");
-  }, [router]);
-
-  const onFindredflagsContainerClick = useCallback(() => {
-    router.push("/finding-red-flags");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[759px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute top-[0px] left-[0px] w-[311px] h-[758px]">
@@ -59,24 +23,23 @@ const MainMenu: NextPage = () => {
         </div>
         <div className="absolute top-[448px] left-[412px] w-[272px] h-[104.2px]">
           <img
-            className="absolute h-[60.46%] w-[53.68%] top-[29.75%] right-[46.32%] bottom-[9.79%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[60.46%] w-[53.68%] top-[29.75%] right-[46.32%] bottom-[9.79%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-31.svg"
+            src="/chat-bubble-3@2x.png"
           />
           <img
-            className="absolute h-[20.35%] w-[7.79%] top-[79.65%] right-[80.07%] bottom-[0%] left-[12.13%] max-w-full overflow-hidden max-h-full"
+            className="absolute h-[20.35%] w-[7.79%] top-[79.65%] right-[80.07%] bottom-[0%] left-[12.13%] max-w-full overflow-hidden max-h-full object-contain"
             alt=""
-            src="/rectangle-581.svg"
+            src="/rectangle-58@2x.png"
           />
           <div className="absolute h-[60.46%] w-[83.82%] top-[0%] left-[16.18%] inline-block">
             ...
           </div>
         </div>
         <img
-          className="absolute h-[3.11%] w-[2.08%] top-[3.13%] right-[77.3%] bottom-[93.76%] left-[20.63%] max-w-full overflow-hidden max-h-full cursor-pointer"
+          className="absolute h-[3.11%] w-[2.08%] top-[3.13%] right-[77.3%] bottom-[93.76%] left-[20.63%] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/group2.svg"
-          onClick={onGroupIconClick}
+          src="/group@2x.png"
         />
         <div className="absolute top-[646px] left-[499px] w-[511px] h-[45px] text-6xl text-dimgray">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-gainsboro" />
@@ -102,10 +65,7 @@ const MainMenu: NextPage = () => {
         </div>
       </div>
       <div className="absolute top-[670px] left-[26px] w-[276px] h-[58px]">
-        <div
-          className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200 cursor-pointer"
-          onClick={onRec29Click}
-        />
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" />
         <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
           Log Out
         </div>
@@ -122,23 +82,17 @@ const MainMenu: NextPage = () => {
         />
       </div>
       <div className="absolute top-[257px] left-[27px] w-[276px] h-20">
-        <div
-          className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-          onClick={onRec7Click}
-        />
+        <div className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <div className="absolute h-[87.5%] w-[77.54%] top-[12.5%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
           Learning the meaning of different phrases
         </div>
         <img
           className="absolute h-[55%] w-[4.35%] top-[10%] right-[3.62%] bottom-[35%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/more-than1@2x.png"
+          src="/more-than@2x.png"
         />
       </div>
-      <div
-        className="absolute top-[348px] left-[27px] w-[276px] h-[83px] cursor-pointer"
-        onClick={onAnalyzeContainerClick}
-      >
+      <div className="absolute top-[348px] left-[27px] w-[276px] h-[83px]">
         <div className="absolute h-[69.88%] w-full top-[-12.05%] right-[0%] bottom-[42.17%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <div className="absolute h-[86.75%] w-[43.48%] top-[1.2%] left-[28.26%] tracking-[-0.32px] leading-[21px] inline-block">
           Analyze a conversation
@@ -146,13 +100,10 @@ const MainMenu: NextPage = () => {
         <img
           className="absolute h-[53.01%] w-[4.35%] top-[-2.41%] right-[3.62%] bottom-[49.4%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/more-than1@2x.png"
+          src="/more-than@2x.png"
         />
       </div>
-      <div
-        className="absolute top-[588px] left-[27px] w-[276px] h-[82px] cursor-pointer"
-        onClick={onViewhistoryContainerClick}
-      >
+      <div className="absolute top-[588px] left-[27px] w-[276px] h-[82px]">
         <div className="absolute h-[70.73%] w-full top-[0%] right-[0%] bottom-[29.27%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <div className="absolute h-[86.59%] w-[23.19%] top-[13.41%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
           View History
@@ -164,10 +115,7 @@ const MainMenu: NextPage = () => {
         />
       </div>
       <div className="absolute top-[104px] left-[27px] w-[276px] h-[69px]">
-        <div
-          className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-          onClick={onRec28Click}
-        />
+        <div className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <div className="absolute h-[72.46%] w-[48.55%] top-[27.54%] left-[25.36%] tracking-[-0.32px] leading-[21px] inline-block">
           New Chat
         </div>
@@ -178,28 +126,22 @@ const MainMenu: NextPage = () => {
         />
       </div>
       <div className="absolute top-[429px] left-[27px] w-[276px] h-[79px]">
-        <div
-          className="absolute h-[73.42%] w-full top-[-12.66%] right-[0%] bottom-[39.24%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-          onClick={onRec10Click}
-        />
+        <div className="absolute h-[73.42%] w-full top-[-12.66%] right-[0%] bottom-[39.24%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <img
           className="absolute h-[55.7%] w-[4.35%] top-[-3.8%] right-[3.62%] bottom-[48.1%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/more-than1@2x.png"
+          src="/more-than@2x.png"
         />
         <div className="absolute h-[89.87%] w-[27.54%] top-[-2.53%] left-[36.59%] tracking-[-0.32px] leading-[21px] inline-block">
           Different Traits
         </div>
       </div>
-      <div
-        className="absolute top-[509px] left-[27px] w-[276px] h-[84px] cursor-pointer"
-        onClick={onFindredflagsContainerClick}
-      >
+      <div className="absolute top-[509px] left-[27px] w-[276px] h-[84px]">
         <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <img
           className="absolute h-[52.38%] w-[4.35%] top-[9.52%] right-[3.62%] bottom-[38.1%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/more-than1@2x.png"
+          src="/more-than@2x.png"
         />
         <div className="absolute h-[86.9%] w-[32.61%] top-[13.1%] left-[34.42%] tracking-[-0.32px] leading-[21px] inline-block">
           Finding Red Flags

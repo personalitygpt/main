@@ -1,46 +1,6 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const AIInsights: NextPage = () => {
-  const router = useRouter();
-
-  const onRectangle4Click = useCallback(() => {
-    router.push("/login-page");
-  }, [router]);
-
-  const onRectangle6Click = useCallback(() => {
-    router.push("/main-menu");
-  }, [router]);
-
-  const onMoreThan5ContainerClick = useCallback(() => {
-    router.push("/main-menu");
-  }, [router]);
-
-  const onConvo6ContainerClick = useCallback(() => {
-    router.push("/analyze-a-conversation");
-  }, [router]);
-
-  const onDiff6ContainerClick = useCallback(() => {
-    router.push("/different-traits");
-  }, [router]);
-
-  const onHistsory6ContainerClick = useCallback(() => {
-    router.push("/view-history");
-  }, [router]);
-
-  const onRectangle10Click = useCallback(() => {
-    router.push("/learning-the-meaning-of-differ");
-  }, [router]);
-
-  const onFrameContainerClick = useCallback(() => {
-    router.push("/learning-the-meaning-of-differ");
-  }, [router]);
-
-  const onFindingredlagsai1ContainerClick = useCallback(() => {
-    router.push("/finding-red-flags");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute h-[96.17%] w-[24.3%] top-[3.56%] right-[75.7%] bottom-[0.26%] left-[0%] bg-lightsteelblue" />
@@ -53,18 +13,18 @@ const AIInsights: NextPage = () => {
         </div>
         <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
           <img
-            className="absolute h-[88.11%] w-full top-[0%] right-[0%] bottom-[11.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[88.11%] w-full top-[0%] right-[0%] bottom-[11.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-4.svg"
+            src="/chat-bubble-4@2x.png"
           />
           <div className="absolute h-[15.92%] w-[3.75%] top-[88.75%] right-[11.25%] bottom-[-4.67%] left-[85%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
           <div className="absolute h-[77.49%] w-[83.75%] top-[10.62%] left-[9.75%] tracking-[-0.32px] leading-[21px] inline-block">{`Could you help me? I am having trouble communicating with my coworker. `}</div>
         </div>
         <div className="absolute top-[123px] left-[411px] w-72 h-[90.2px] text-left text-xl">
           <img
-            className="absolute h-[88.69%] w-full top-[0%] right-[0%] bottom-[11.31%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[88.69%] w-full top-[0%] right-[0%] bottom-[11.31%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-61.svg"
+            src="/chat-bubble-6@2x.png"
           />
           <div className="absolute h-[16.63%] w-[5.21%] top-[88.25%] right-[82.64%] bottom-[-4.88%] left-[12.15%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
           <div className="absolute h-[69.84%] w-[88.89%] top-[6.65%] left-[10.42%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -74,9 +34,9 @@ const AIInsights: NextPage = () => {
         <div className="absolute top-[399px] left-[411px] w-[381px] h-[98.2px] text-left text-xl">
           <div className="absolute h-[15.27%] w-[3.94%] top-[89.21%] right-[88.19%] bottom-[-4.48%] left-[7.87%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
           <img
-            className="absolute h-[89.61%] w-full top-[0%] right-[0%] bottom-[10.39%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[89.61%] w-full top-[0%] right-[0%] bottom-[10.39%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-5.svg"
+            src="/chat-bubble-5@2x.png"
           />
           <div className="absolute h-[62.12%] w-[78.74%] top-[22.4%] left-[9.71%] tracking-[-0.32px] leading-[21px] inline-block">{`Sure! I could definitely help out. Would you tell me more? `}</div>
           <div className="absolute h-[16.29%] w-[4.2%] top-[37.68%] right-[7.35%] bottom-[46.03%] left-[88.45%] rounded-[50%] bg-red" />
@@ -103,18 +63,15 @@ const AIInsights: NextPage = () => {
           />
         </div>
         <div className="absolute top-[636px] left-[21px] w-[276px] h-[58px]">
-          <div
-            className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200 cursor-pointer"
-            onClick={onRectangle4Click}
-          />
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" />
           <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
             Log Out
           </div>
         </div>
         <img
-          className="absolute top-[25px] left-[257px] w-[26.6px] h-[22.9px]"
+          className="absolute top-[25px] left-[257px] w-[26.6px] h-[22.9px] object-cover"
           alt=""
-          src="/group.svg"
+          src="/group@2x.png"
         />
         <div className="absolute top-[67px] left-[16px] w-[276px] h-[69px]">
           <div className="absolute h-[84.06%] w-full top-[15.94%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightgray" />
@@ -131,18 +88,12 @@ const AIInsights: NextPage = () => {
         </div>
         <div className="absolute top-[154px] left-[17px] w-[276px] h-[81px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div
-              className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100 cursor-pointer"
-              onClick={onRectangle6Click}
-            />
+            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
             <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Communicating with a certain personality
             </div>
           </div>
-          <div
-            className="absolute h-[53.09%] w-[4.35%] top-[7.41%] right-[3.26%] bottom-[39.51%] left-[92.39%] cursor-pointer"
-            onClick={onMoreThan5ContainerClick}
-          >
+          <div className="absolute h-[53.09%] w-[4.35%] top-[7.41%] right-[3.26%] bottom-[39.51%] left-[92.39%]">
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
@@ -150,10 +101,7 @@ const AIInsights: NextPage = () => {
             />
           </div>
         </div>
-        <div
-          className="absolute top-[309px] left-[15px] w-[276px] h-[83px] cursor-pointer"
-          onClick={onConvo6ContainerClick}
-        >
+        <div className="absolute top-[309px] left-[15px] w-[276px] h-[83px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
             <div className="absolute h-[69.88%] w-full top-[0%] right-[0%] bottom-[30.12%] left-[0%] rounded-2xl bg-whitesmoke-400" />
             <div className="absolute h-[86.75%] w-[43.48%] top-[13.25%] left-[28.26%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -168,10 +116,7 @@ const AIInsights: NextPage = () => {
             />
           </div>
         </div>
-        <div
-          className="absolute top-[388px] left-[15px] w-[276px] h-[79px] cursor-pointer"
-          onClick={onDiff6ContainerClick}
-        >
+        <div className="absolute top-[388px] left-[15px] w-[276px] h-[79px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
             <div className="absolute h-[73.42%] w-full top-[0%] right-[0%] bottom-[26.58%] left-[0%] rounded-2xl bg-whitesmoke-400" />
             <div className="absolute h-[89.87%] w-[27.54%] top-[10.13%] left-[36.59%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -186,10 +131,7 @@ const AIInsights: NextPage = () => {
             />
           </div>
         </div>
-        <div
-          className="absolute top-[551px] left-[15px] w-[276px] h-[84px] cursor-pointer"
-          onClick={onHistsory6ContainerClick}
-        >
+        <div className="absolute top-[551px] left-[15px] w-[276px] h-[84px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
             <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
             <div className="absolute h-[84.52%] w-[23.19%] top-[15.48%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -206,18 +148,12 @@ const AIInsights: NextPage = () => {
         </div>
         <div className="absolute top-[235px] left-[15px] w-[276px] h-20">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div
-              className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-              onClick={onRectangle10Click}
-            />
+            <div className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400" />
             <div className="absolute h-[87.5%] w-[77.54%] top-[12.5%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Learning the meaning of different phrases
             </div>
           </div>
-          <div
-            className="absolute top-[0px] left-[254px] w-3 h-[50px] overflow-hidden cursor-pointer"
-            onClick={onFrameContainerClick}
-          >
+          <div className="absolute top-[0px] left-[254px] w-3 h-[50px] overflow-hidden">
             <div className="absolute h-[86%] w-full top-[14%] right-[0%] bottom-[0%] left-[0%]">
               <img
                 className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover"
@@ -228,21 +164,17 @@ const AIInsights: NextPage = () => {
           </div>
         </div>
       </div>
-      <div
-        className="absolute top-[489px] left-[17px] w-[276px] h-[84px] cursor-pointer"
-        onClick={onFindingredlagsai1ContainerClick}
-      >
+      <div className="absolute top-[489px] left-[17px] w-[276px] h-[84px]">
         <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <div className="absolute h-[86.9%] w-[32.61%] top-[13.1%] left-[34.42%] tracking-[-0.32px] leading-[21px] inline-block">
           Finding Red Flags
         </div>
         <img
-          className="absolute h-[51.19%] w-[4.35%] top-[13.1%] right-[6.52%] bottom-[35.71%] left-[89.13%] max-w-full overflow-hidden max-h-full object-cover"
+          className="absolute h-[51.19%] w-[4.35%] top-[9.52%] right-[4.71%] bottom-[39.29%] left-[90.94%] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
           src="/more-than@2x.png"
         />
       </div>
-      <div className="absolute h-[2.64%] w-full top-[0%] right-[0%] bottom-[97.36%] left-[0%] bg-gainsboro" />
     </div>
   );
 };

@@ -5,23 +5,12 @@ import { useRouter } from "next/router";
 const LandingPage: NextPage = () => {
   const router = useRouter();
 
-  const onRectangle2Click = useCallback(() => {
+  const onRectangle1Click = useCallback(() => {
     router.push("/personality-quiz");
-  }, [router]);
-
-  const onRectangle3Click = useCallback(() => {
-    router.push("/sign-up-page");
-  }, [router]);
-
-  const onRectangle4Click = useCallback(() => {
-    router.push("/login-page");
   }, [router]);
 
   return (
     <div className="relative bg-white w-full h-[760px] overflow-hidden text-center text-6xl text-black font-inter">
-      <div className="absolute top-[0px] left-[4px] w-[1280px] h-[22px]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
-      </div>
       <div className="absolute top-[24px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
         <div className="absolute top-[0px] left-[4px] w-[404px] h-[759px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
@@ -31,12 +20,12 @@ const LandingPage: NextPage = () => {
           <img
             className="absolute h-full w-[71.64%] top-[0%] right-[-2.94%] bottom-[0%] left-[31.3%] max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/image-171@2x.png"
+            src="/image-17@2x.png"
           />
           <div className="absolute h-[17.16%] w-[43.53%] top-[-17.16%] right-[92.41%] bottom-[100%] left-[-35.93%] hidden">
             <div
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue cursor-pointer"
-              onClick={onRectangle2Click}
+              onClick={onRectangle1Click}
             />
             <i className="absolute top-[26.6%] left-[14.61%] font-bold">
               Contact us
@@ -53,20 +42,14 @@ const LandingPage: NextPage = () => {
           </p>
         </i>
         <div className="absolute top-[31px] left-[429px] w-[178px] h-16 text-left">
-          <div
-            className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue cursor-pointer"
-            onClick={onRectangle3Click}
-          />
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue" />
           <i className="absolute top-[28.13%] left-[23.6%] font-bold">
             Sign Up
           </i>
         </div>
         <div className="absolute top-[31px] left-[1086px] w-[178px] h-16 text-left">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue cursor-pointer"
-              onClick={onRectangle4Click}
-            />
+            <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue" />
             <i className="absolute top-[28.13%] left-[23.6%] font-bold">
               Log In
             </i>

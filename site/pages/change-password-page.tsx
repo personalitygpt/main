@@ -1,25 +1,10 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const ChangePasswordPage: NextPage = () => {
-  const router = useRouter();
-
-  const onRectangle5Click = useCallback(() => {
-    router.push("/account-page");
-  }, [router]);
-
-  const onBackbutton1ContainerClick = useCallback(() => {
-    router.push("/password-page2");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[761px] overflow-hidden text-left text-16xl text-darkgray-200 font-inter">
       <div className="absolute top-[22px] left-[0px] w-[311px] h-[736px]">
         <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
-      </div>
-      <div className="absolute top-[0px] left-[0px] w-[1280px] h-[22px]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
       </div>
       <div className="absolute top-[299px] left-[606px] w-[169px] h-[42px]">
         <div className="absolute top-[0%] left-[0%]">Username</div>
@@ -80,10 +65,7 @@ const ChangePasswordPage: NextPage = () => {
       </div>
       <div className="absolute top-[609px] left-[660px] w-[280px] h-16 text-center text-6xl text-black">
         <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-          <div
-            className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue cursor-pointer"
-            onClick={onRectangle5Click}
-          />
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
         </div>
         <div className="absolute h-[46.88%] w-[68.21%] top-[26.56%] right-[16.07%] bottom-[26.56%] left-[15.71%]">
           <div className="absolute w-full top-[0%] left-[0%] inline-block">
@@ -92,11 +74,7 @@ const ChangePasswordPage: NextPage = () => {
         </div>
       </div>
       <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden text-11xl text-black border-[3px] border-solid border-black">
-        <div
-          className="absolute top-[34px] left-[27px] w-[146px] h-[65px] cursor-pointer"
-          onClick={onBackbutton1ContainerClick}
-        >
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-dodgerblue-200" />
+        <div className="absolute top-[34px] left-[27px] w-[146px] h-[65px]">
           <div className="absolute top-[23.08%] left-[26.03%]">back</div>
         </div>
       </div>

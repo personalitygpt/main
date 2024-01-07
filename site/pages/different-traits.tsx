@@ -1,73 +1,26 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const DifferentTraits: NextPage = () => {
-  const router = useRouter();
-
-  const onRectangleClick = useCallback(() => {
-    router.push("/finding-red-flags");
-  }, [router]);
-
-  const onGroupIconClick = useCallback(() => {
-    router.push("/profile-page");
-  }, [router]);
-
-  const onRectangle1Click = useCallback(() => {
-    router.push("/main-menu");
-  }, [router]);
-
-  const onRectangle2Click = useCallback(() => {
-    router.push("/learning-the-meaning-of-differ");
-  }, [router]);
-
-  const onAnalyze9ContainerClick = useCallback(() => {
-    router.push("/analyze-a-conversation");
-  }, [router]);
-
-  const onRectangle3Click = useCallback(() => {
-    router.push("/analyze-a-conversation");
-  }, [router]);
-
-  const onRectangle5Click = useCallback(() => {
-    router.push("/view-history");
-  }, [router]);
-
-  const onRec66Click = useCallback(() => {
-    router.push("/login-page");
-  }, [router]);
-
-  const onRec67Click = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[757px] overflow-hidden text-left text-xl text-black font-inter">
       <div className="absolute top-[0px] left-[0px] w-[1280px] h-[758px]">
         <div className="absolute h-[97.1%] w-[24.3%] top-[2.9%] right-[75.7%] bottom-[0%] left-[0%] bg-lightsteelblue" />
         <div className="absolute h-[97.1%] w-full top-[2.9%] right-[0%] bottom-[0%] left-[0%] box-border overflow-hidden text-center text-base border-[3px] border-solid border-black">
           <div className="absolute h-[11.41%] w-[21.56%] top-[59.51%] right-[77.03%] bottom-[29.08%] left-[1.41%]">
-            <div
-              className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-              onClick={onRectangleClick}
-            />
+            <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
             <div className="absolute h-[86.9%] w-[32.61%] top-[13.1%] left-[34.42%] tracking-[-0.32px] leading-[21px] inline-block">
               Finding Red Flags
             </div>
           </div>
           <img
-            className="absolute h-[3.11%] w-[2.08%] top-[0.82%] right-[76.44%] bottom-[96.07%] left-[21.48%] max-w-full overflow-hidden max-h-full cursor-pointer"
+            className="absolute h-[3.11%] w-[2.08%] top-[0.82%] right-[76.44%] bottom-[96.07%] left-[21.48%] max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/group.svg"
-            onClick={onGroupIconClick}
+            src="/group@2x.png"
           />
           <div className="absolute h-[54.21%] w-[2.5%] top-[5.71%] right-[0%] bottom-[40.08%] left-[97.5%] bg-gainsboro" />
           <div className="absolute h-[11.01%] w-[21.56%] top-[15.49%] right-[77.11%] bottom-[73.51%] left-[1.33%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-              <div
-                className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100 cursor-pointer"
-                onClick={onRectangle1Click}
-              />
+              <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
               <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
                 Communicating with a certain personality
               </div>
@@ -80,10 +33,7 @@ const DifferentTraits: NextPage = () => {
           </div>
           <div className="absolute h-[10.87%] w-[21.56%] top-[26.49%] right-[77.11%] bottom-[62.64%] left-[1.33%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-              <div
-                className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-                onClick={onRectangle2Click}
-              />
+              <div className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <div className="absolute h-[87.5%] w-[77.54%] top-[12.5%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
                 Learning the meaning of different phrases
               </div>
@@ -94,15 +44,9 @@ const DifferentTraits: NextPage = () => {
               src="/more-than@2x.png"
             />
           </div>
-          <div
-            className="absolute h-[11.28%] w-[21.56%] top-[37.36%] right-[77.19%] bottom-[51.36%] left-[1.25%] cursor-pointer"
-            onClick={onAnalyze9ContainerClick}
-          >
+          <div className="absolute h-[11.28%] w-[21.56%] top-[37.36%] right-[77.19%] bottom-[51.36%] left-[1.25%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-              <div
-                className="absolute h-[69.88%] w-full top-[0%] right-[0%] bottom-[30.12%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-                onClick={onRectangle3Click}
-              />
+              <div className="absolute h-[69.88%] w-full top-[0%] right-[0%] bottom-[30.12%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <div className="absolute h-[86.75%] w-[43.48%] top-[13.25%] left-[28.26%] tracking-[-0.32px] leading-[21px] inline-block">
                 Analyze a conversation
               </div>
@@ -130,10 +74,7 @@ const DifferentTraits: NextPage = () => {
           </div>
           <div className="absolute h-[11.41%] w-[21.56%] top-[70.38%] right-[77.11%] bottom-[18.21%] left-[1.33%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-              <div
-                className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-                onClick={onRectangle5Click}
-              />
+              <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <div className="absolute h-[84.52%] w-[23.19%] top-[15.48%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
                 View History
               </div>
@@ -147,14 +88,11 @@ const DifferentTraits: NextPage = () => {
         </div>
         <div className="absolute h-[2.9%] w-full top-[0%] right-[0%] bottom-[97.1%] left-[0%] bg-gainsboro" />
         <img
-          className="absolute h-[7.65%] w-[21.56%] top-[33.91%] right-[77.03%] bottom-[58.44%] left-[1.41%] rounded-2xl max-w-full overflow-hidden max-h-full"
+          className="absolute h-[7.65%] w-[21.56%] top-[33.91%] right-[77.03%] bottom-[58.44%] left-[1.41%] rounded-2xl max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/line-12.svg"
+          src="/group1rec1@2x.png"
         />
-        <div
-          className="absolute h-[7.65%] w-[21.56%] top-[82.19%] right-[77.11%] bottom-[10.16%] left-[1.33%] rounded-2xl bg-dodgerblue-200 cursor-pointer"
-          onClick={onRec66Click}
-        />
+        <div className="absolute h-[7.65%] w-[21.56%] top-[82.19%] right-[77.11%] bottom-[10.16%] left-[1.33%] rounded-2xl bg-dodgerblue-200" />
         <div className="absolute h-[2.51%] w-[4.84%] top-[84.56%] left-[9.69%] text-base tracking-[-0.32px] leading-[21px] text-center inline-block">
           Log Out
         </div>
@@ -176,9 +114,9 @@ const DifferentTraits: NextPage = () => {
           src="/image-2@2x.png"
         />
         <img
-          className="absolute h-[10.55%] w-[22.5%] top-[20.71%] right-[45.08%] bottom-[68.73%] left-[32.42%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+          className="absolute h-[10.55%] w-[22.5%] top-[20.71%] right-[45.08%] bottom-[68.73%] left-[32.42%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/chat-bubble-61.svg"
+          src="/chat-bubble-6@2x.png"
         />
         <div className="absolute h-[1.98%] w-[1.17%] top-[31.21%] right-[63.67%] bottom-[66.81%] left-[35.16%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
         <img
@@ -187,9 +125,9 @@ const DifferentTraits: NextPage = () => {
           src="/image-2@2x.png"
         />
         <img
-          className="absolute h-[19.53%] w-[32.66%] top-[57.39%] right-[34.92%] bottom-[23.09%] left-[32.42%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+          className="absolute h-[19.53%] w-[32.66%] top-[57.39%] right-[34.92%] bottom-[23.09%] left-[32.42%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/chat-bubble-53.svg"
+          src="/chat-bubble-5@2x.png"
         />
         <div className="absolute h-[16.09%] w-[26.88%] top-[58.84%] left-[35.55%] tracking-[-0.32px] leading-[21px] inline-block">
           Neuroticism is the trait disposition to experience negative effects or
@@ -197,9 +135,9 @@ const DifferentTraits: NextPage = () => {
           depends on how the individual can manage themself.
         </div>
         <img
-          className="absolute h-[10.95%] w-[31.25%] top-[43.01%] right-[6.33%] bottom-[46.04%] left-[62.42%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+          className="absolute h-[10.95%] w-[31.25%] top-[43.01%] right-[6.33%] bottom-[46.04%] left-[62.42%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/chat-bubble-4.svg"
+          src="/chat-bubble-4@2x.png"
         />
         <div className="absolute h-[1.98%] w-[1.17%] top-[54.04%] right-[9.84%] bottom-[43.98%] left-[88.98%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
         <div className="absolute w-[24.77%] top-[44.33%] left-[66.88%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -215,24 +153,21 @@ const DifferentTraits: NextPage = () => {
           Type Here...
         </div>
         <img
-          className="absolute h-[7.65%] w-[8.83%] top-[75.99%] right-[6.64%] bottom-[16.36%] left-[84.53%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+          className="absolute h-[7.65%] w-[8.83%] top-[75.99%] right-[6.64%] bottom-[16.36%] left-[84.53%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
           alt=""
-          src="/chat-bubble-62.svg"
+          src="/chat-bubble-6@2x.png"
         />
         <img
-          className="absolute h-[2.8%] w-[1.66%] top-[82.19%] right-[8.34%] bottom-[15.01%] left-[90%] max-w-full overflow-hidden max-h-full"
+          className="absolute h-[2.8%] w-[1.66%] top-[82.19%] right-[8.34%] bottom-[15.01%] left-[90%] max-w-full overflow-hidden max-h-full object-contain"
           alt=""
-          src="/rectangle-58.svg"
+          src="/rectangle-58@2x.png"
         />
         <div className="absolute h-[4.35%] w-[14.22%] top-[67.94%] left-[85.78%] text-77xl inline-block">
           ...
         </div>
       </div>
       <div className="absolute top-[56px] left-[18px] w-[276px] h-[69px] text-center text-base">
-        <div
-          className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-          onClick={onRec67Click}
-        />
+        <div className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-400" />
         <div className="absolute h-[72.46%] w-[48.91%] top-[27.54%] left-[25.36%] tracking-[-0.32px] leading-[21px] inline-block">
           New Chat
         </div>

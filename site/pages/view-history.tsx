@@ -1,42 +1,6 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const ViewHistory: NextPage = () => {
-  const router = useRouter();
-
-  const onRec7Click = useCallback(() => {
-    router.push("/learning-the-meaning-of-differ");
-  }, [router]);
-
-  const onRec28Click = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
-  const onRectangleClick = useCallback(() => {
-    router.push("/main-menu");
-  }, [router]);
-
-  const onAnalyzeContainerClick = useCallback(() => {
-    router.push("/analyze-a-conversation");
-  }, [router]);
-
-  const onRec10Click = useCallback(() => {
-    router.push("/different-traits");
-  }, [router]);
-
-  const onRec29Click = useCallback(() => {
-    router.push("/login-page");
-  }, [router]);
-
-  const onComponent55ContainerClick = useCallback(() => {
-    router.push("/finding-red-flags");
-  }, [router]);
-
-  const onGroupIconClick = useCallback(() => {
-    router.push("/profile-page");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute top-[0px] left-[0px] w-[1280px] overflow-hidden flex flex-col items-center justify-start">
@@ -44,24 +8,18 @@ const ViewHistory: NextPage = () => {
           <div className="absolute h-[97.1%] w-[24.3%] top-[2.9%] right-[75.7%] bottom-[0%] left-[0%] bg-lightsteelblue" />
           <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
             <div className="absolute h-[10.87%] w-[21.56%] top-[33.29%] right-[76.48%] bottom-[55.84%] left-[1.95%]">
-              <div
-                className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-                onClick={onRec7Click}
-              />
+              <div className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <div className="absolute h-[87.5%] w-[77.54%] top-[12.5%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
                 Learning the meaning of different phrases
               </div>
               <img
                 className="absolute h-[55%] w-[4.35%] top-[10%] right-[3.62%] bottom-[35%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
-                src="/more-than1@2x.png"
+                src="/more-than@2x.png"
               />
             </div>
             <div className="absolute h-[9.38%] w-[21.56%] top-[12.77%] right-[76.48%] bottom-[77.85%] left-[1.95%]">
-              <div
-                className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-                onClick={onRec28Click}
-              />
+              <div className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <div className="absolute h-[72.46%] w-[48.55%] top-[27.54%] left-[25.36%] tracking-[-0.32px] leading-[21px] inline-block">
                 New Chat
               </div>
@@ -72,10 +30,7 @@ const ViewHistory: NextPage = () => {
               />
             </div>
             <div className="absolute h-[11.01%] w-[21.56%] top-[23.23%] right-[76.41%] bottom-[65.76%] left-[2.03%]">
-              <div
-                className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100 cursor-pointer"
-                onClick={onRectangleClick}
-              />
+              <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
               <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
                 Communicating with a certain personality
               </div>
@@ -85,10 +40,7 @@ const ViewHistory: NextPage = () => {
                 src="/more-than@2x.png"
               />
             </div>
-            <div
-              className="absolute h-[11.28%] w-[21.56%] top-[45.52%] right-[76.56%] bottom-[43.21%] left-[1.88%] cursor-pointer"
-              onClick={onAnalyzeContainerClick}
-            >
+            <div className="absolute h-[11.28%] w-[21.56%] top-[45.52%] right-[76.56%] bottom-[43.21%] left-[1.88%]">
               <div className="absolute h-[69.88%] w-full top-[-12.05%] right-[0%] bottom-[42.17%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <div className="absolute h-[86.75%] w-[43.48%] top-[1.2%] left-[28.26%] tracking-[-0.32px] leading-[21px] inline-block">
                 Analyze a conversation
@@ -96,18 +48,15 @@ const ViewHistory: NextPage = () => {
               <img
                 className="absolute h-[53.01%] w-[4.35%] top-[-2.41%] right-[3.62%] bottom-[49.4%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
-                src="/more-than1@2x.png"
+                src="/more-than@2x.png"
               />
             </div>
             <div className="absolute h-[10.73%] w-[21.56%] top-[56.11%] right-[76.41%] bottom-[33.15%] left-[2.03%]">
-              <div
-                className="absolute h-[73.42%] w-full top-[-12.66%] right-[0%] bottom-[39.24%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-                onClick={onRec10Click}
-              />
+              <div className="absolute h-[73.42%] w-full top-[-12.66%] right-[0%] bottom-[39.24%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <img
                 className="absolute h-[55.7%] w-[4.35%] top-[-3.8%] right-[3.62%] bottom-[48.1%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
-                src="/more-than1@2x.png"
+                src="/more-than@2x.png"
               />
               <div className="absolute h-[89.87%] w-[27.54%] top-[-2.53%] left-[36.59%] tracking-[-0.32px] leading-[21px] inline-block">
                 Different Traits
@@ -126,40 +75,33 @@ const ViewHistory: NextPage = () => {
               />
             </div>
             <div className="absolute h-[7.88%] w-[21.56%] top-[86.41%] right-[76.48%] bottom-[5.71%] left-[1.95%]">
-              <div
-                className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200 cursor-pointer"
-                onClick={onRec29Click}
-              />
+              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" />
               <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
                 Log Out
               </div>
             </div>
-            <div
-              className="absolute h-[11.41%] w-[21.56%] top-[65.76%] right-[76.48%] bottom-[22.83%] left-[1.95%] cursor-pointer"
-              onClick={onComponent55ContainerClick}
-            >
+            <div className="absolute h-[11.41%] w-[21.56%] top-[65.76%] right-[76.48%] bottom-[22.83%] left-[1.95%]">
               <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
               <img
                 className="absolute h-[52.38%] w-[4.35%] top-[9.52%] right-[3.62%] bottom-[38.1%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
-                src="/more-than1@2x.png"
+                src="/more-than@2x.png"
               />
               <div className="absolute h-[86.9%] w-[32.61%] top-[13.1%] left-[34.42%] tracking-[-0.32px] leading-[21px] inline-block">
                 Finding Red Flags
               </div>
             </div>
             <img
-              className="absolute h-[3.21%] w-[2.08%] top-[2.58%] right-[77.69%] bottom-[94.21%] left-[20.23%] max-w-full overflow-hidden max-h-full cursor-pointer"
+              className="absolute h-[3.21%] w-[2.08%] top-[2.58%] right-[77.69%] bottom-[94.21%] left-[20.23%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/group1.svg"
-              onClick={onGroupIconClick}
+              src="/group@2x.png"
             />
             <div className="absolute top-[237px] left-[389px] w-[304px] h-[98.2px]" />
             <div className="absolute h-[2.04%] w-[1.17%] top-[84.18%] right-[67.81%] bottom-[13.78%] left-[31.02%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
             <img
-              className="absolute h-[12.09%] w-[23.75%] top-[72.28%] right-[48.36%] bottom-[15.63%] left-[27.89%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+              className="absolute h-[12.09%] w-[23.75%] top-[72.28%] right-[48.36%] bottom-[15.63%] left-[27.89%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/chat-bubble-8.svg"
+              src="/chat-bubble-8@2x.png"
             />
             <div className="absolute h-[10.05%] w-[17.89%] top-[73.37%] left-[31.02%] text-xl tracking-[-0.32px] leading-[21px] text-left inline-block">
               Welcome to PersonalityGPT! How may I assist you today?
@@ -177,23 +119,23 @@ const ViewHistory: NextPage = () => {
               <div className="absolute h-[78.26%] w-[0.15%] top-[6.52%] right-[89.13%] bottom-[15.22%] left-[10.72%] box-border border-r-[1px] border-solid border-black" />
               <div className="absolute h-[78.26%] w-[0.15%] top-[7.97%] right-[10.12%] bottom-[13.77%] left-[89.73%] box-border border-r-[1px] border-solid border-black" />
               <img
-                className="absolute h-[2.9%] w-[79.01%] top-[82.61%] right-[10.19%] bottom-[14.49%] left-[10.79%] max-w-full overflow-hidden max-h-full"
+                className="absolute h-[1.45%] w-[79.01%] top-[84.06%] right-[10.19%] bottom-[14.49%] left-[10.79%] max-w-full overflow-hidden max-h-full object-contain"
                 alt=""
-                src="/line-12.svg"
+                src="/line-12@2x.png"
               />
               <img
-                className="absolute h-[2.9%] w-[79.01%] top-[5.8%] right-[10.19%] bottom-[91.3%] left-[10.79%] max-w-full overflow-hidden max-h-full"
+                className="absolute h-[1.45%] w-[79.01%] top-[7.25%] right-[10.19%] bottom-[91.3%] left-[10.79%] max-w-full overflow-hidden max-h-full object-contain"
                 alt=""
-                src="/line-12.svg"
+                src="/line-12@2x.png"
               />
             </div>
             <div className="absolute top-[292px] left-[361px] w-[304px] overflow-hidden flex flex-col items-center justify-start text-left text-xl">
               <div className="self-stretch relative h-[99.2px]">
                 <div className="absolute h-[15.12%] w-[4.93%] top-[89.31%] right-[80.92%] bottom-[-4.44%] left-[14.14%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
                 <img
-                  className="absolute h-[89.72%] w-full top-[0%] right-[0%] bottom-[10.28%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+                  className="absolute h-[89.72%] w-full top-[0%] right-[0%] bottom-[10.28%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
                   alt=""
-                  src="/chat-bubble-8.svg"
+                  src="/chat-bubble-8@2x.png"
                 />
                 <div className="absolute h-[67.54%] w-[72.37%] top-[11.09%] left-[12.5%] tracking-[-0.32px] leading-[21px] inline-block">{`Sure! I could definitely help out. Would you tell me more? `}</div>
               </div>
@@ -212,11 +154,10 @@ const ViewHistory: NextPage = () => {
               <p className="m-0">Chat History</p>
             </div>
           </div>
-          <div className="absolute top-[0px] left-[0px] bg-gainsboro w-[1280px] h-[22px]" />
           <img
-            className="absolute top-[257px] left-[18px] rounded-2xl w-[276px] h-[58px]"
+            className="absolute top-[257px] left-[18px] rounded-2xl w-[276px] h-[58px] object-cover"
             alt=""
-            src="/line-12.svg"
+            src="/group1rec1@2x.png"
           />
         </div>
       </div>

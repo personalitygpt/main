@@ -1,19 +1,8 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const PersonalityQuiz: NextPage = () => {
-  const router = useRouter();
-
-  const onTypeboxquizContainerClick = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[757px] overflow-hidden text-left text-xl text-dimgray font-inter">
-      <div className="absolute top-[0px] left-[0px] w-[1280px] h-[22px]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
-      </div>
       <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
         <div className="absolute top-[642px] left-[271px] text-17xl hidden">
           Type Here...
@@ -31,10 +20,7 @@ const PersonalityQuiz: NextPage = () => {
           <div className="absolute top-[15.94%] left-[25%]">Sure!</div>
           <div className="absolute h-[29.88%] w-[15%] top-[78.88%] right-[32%] bottom-[-8.76%] left-[53%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
         </div>
-        <div
-          className="absolute top-[641px] left-[340px] w-[511px] h-[45px] cursor-pointer text-6xl"
-          onClick={onTypeboxquizContainerClick}
-        >
+        <div className="absolute top-[641px] left-[340px] w-[511px] h-[45px] text-6xl">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-gainsboro" />
           <div className="absolute h-[75.56%] w-[82.19%] top-[17.78%] left-[1.17%] inline-block">
             {" "}

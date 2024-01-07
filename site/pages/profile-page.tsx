@@ -1,30 +1,6 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const ProfilePage: NextPage = () => {
-  const router = useRouter();
-
-  const onBackbtnprofileContainerClick = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
-  const onRectangleContainer1Click = useCallback(() => {
-    router.push("/color-pallete-blue");
-  }, [router]);
-
-  const onColorTonesContainerClick = useCallback(() => {
-    router.push("/color-pallete-blue");
-  }, [router]);
-
-  const onRectangleContainer2Click = useCallback(() => {
-    router.push("/settings-page");
-  }, [router]);
-
-  const onRectangle2Click = useCallback(() => {
-    router.push("/settings-page");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-11xl text-black font-inter">
       <div className="absolute top-[22px] left-[0px] w-[304px] h-[736px]">
@@ -33,9 +9,9 @@ const ProfilePage: NextPage = () => {
       <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
         <div className="absolute top-[408px] left-[565px] w-[399px] h-[171px]" />
         <img
-          className="absolute top-[123px] left-[676px] w-[200px] h-[200px] overflow-hidden"
+          className="absolute top-[123px] left-[676px] w-[200px] h-[200px] overflow-hidden object-cover"
           alt=""
-          src="/frame.svg"
+          src="/frame@2x.png"
         />
         <div className="absolute top-[319px] left-[739px] w-[79px] h-[21px] text-base text-mediumblue">
           <div className="absolute top-[0%] left-[0%] [text-decoration:underline] tracking-[-0.32px] leading-[21px]">
@@ -52,10 +28,7 @@ const ProfilePage: NextPage = () => {
             Example Name
           </div>
         </div>
-        <div
-          className="absolute top-[24px] left-[25px] w-[146px] h-[65px] cursor-pointer text-left"
-          onClick={onBackbtnprofileContainerClick}
-        >
+        <div className="absolute top-[24px] left-[25px] w-[146px] h-[65px] text-left">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-dodgerblue-200" />
           </div>
@@ -64,16 +37,10 @@ const ProfilePage: NextPage = () => {
           </div>
         </div>
         <div className="absolute top-[491px] left-[543px] w-[437px] h-[85px]">
-          <div
-            className="absolute h-[58.82%] w-[89.93%] top-[21.18%] right-[0%] bottom-[20%] left-[10.07%] cursor-pointer"
-            onClick={onRectangleContainer1Click}
-          >
+          <div className="absolute h-[58.82%] w-[89.93%] top-[21.18%] right-[0%] bottom-[20%] left-[10.07%]">
             <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-whitesmoke-200" />
           </div>
-          <div
-            className="absolute h-[42.35%] w-[87.87%] top-[37.65%] right-[12.13%] bottom-[20%] left-[0%] cursor-pointer"
-            onClick={onColorTonesContainerClick}
-          >
+          <div className="absolute h-[42.35%] w-[87.87%] top-[37.65%] right-[12.13%] bottom-[20%] left-[0%]">
             <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">
               Color Tones
             </div>
@@ -89,44 +56,35 @@ const ProfilePage: NextPage = () => {
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/more-than2@2x.png"
+              src="/more-than@2x.png"
             />
           </div>
         </div>
         <div className="absolute top-[424px] left-[582px] w-[393px] h-[85px]">
-          <div
-            className="absolute h-[57.65%] w-full top-[21.18%] right-[0%] bottom-[21.18%] left-[0%] cursor-pointer"
-            onClick={onRectangleContainer2Click}
-          >
-            <div
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-whitesmoke-200 cursor-pointer"
-              onClick={onRectangle2Click}
-            />
+          <div className="absolute h-[57.65%] w-full top-[21.18%] right-[0%] bottom-[21.18%] left-[0%]">
+            <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-whitesmoke-200" />
             <div className="absolute h-[109.59%] w-[101.53%] top-[26.53%] left-[-21.37%] tracking-[-0.32px] leading-[21px] inline-block">
               Settings
             </div>
           </div>
           <img
-            className="absolute h-[20.59%] w-[4.58%] top-[40%] right-[90.59%] bottom-[39.41%] left-[4.83%] max-w-full overflow-hidden max-h-full"
+            className="absolute h-[20.59%] w-[4.58%] top-[40%] right-[90.59%] bottom-[39.41%] left-[4.83%] max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/vector.svg"
+            src="/vector@2x.png"
           />
           <img
-            className="absolute h-[35.88%] w-[7.81%] top-[32.94%] right-[88.88%] bottom-[31.18%] left-[3.31%] max-w-full overflow-hidden max-h-full"
+            className="absolute h-[35.88%] w-[7.81%] top-[32.94%] right-[88.88%] bottom-[31.18%] left-[3.31%] max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/vector1.svg"
+            src="/vector@2x.png"
           />
           <div className="absolute h-full w-[5.85%] top-[0%] right-[3.82%] bottom-[0%] left-[90.33%]">
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/more-than2@2x.png"
+              src="/more-than@2x.png"
             />
           </div>
         </div>
-      </div>
-      <div className="absolute top-[0px] left-[0px] w-[1280px] h-[22px]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
       </div>
       <div className="absolute top-[194px] left-[14px] w-[299px] h-[524px] text-31xl font-magra">
         <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">

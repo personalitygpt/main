@@ -1,21 +1,10 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 
 const TextSettingsPage: NextPage = () => {
-  const router = useRouter();
-
-  const onBackbtntxtsettingContainerClick = useCallback(() => {
-    router.push("/text-settings-page1");
-  }, [router]);
-
   return (
     <div className="relative bg-white w-full h-[764px] overflow-hidden text-center text-21xl text-black font-inter">
       <div className="absolute top-[22px] left-[0px] w-[311px] h-[736px]">
         <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
-      </div>
-      <div className="absolute top-[0px] left-[0px] w-[1280px] h-[22px]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
       </div>
       <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
         <div className="absolute top-[96px] left-[718px] w-[162px] h-[180px] text-81xl">
@@ -64,10 +53,7 @@ const TextSettingsPage: NextPage = () => {
             Kadwa
           </div>
         </div>
-        <div
-          className="absolute top-[31px] left-[20px] w-[146px] h-[65px] cursor-pointer text-left text-11xl"
-          onClick={onBackbtntxtsettingContainerClick}
-        >
+        <div className="absolute top-[31px] left-[20px] w-[146px] h-[65px] text-left text-11xl">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-dodgerblue-200" />
           <div className="absolute top-[23.08%] left-[26.03%]">back</div>
         </div>

@@ -5,32 +5,8 @@ import { useRouter } from "next/router";
 const LearningTheMeaningOfDiffer: NextPage = () => {
   const router = useRouter();
 
-  const onRectangle4Click = useCallback(() => {
-    router.push("/login-page");
-  }, [router]);
-
-  const onRectangle7Click = useCallback(() => {
-    router.push("/main-menu");
-  }, [router]);
-
   const onRectangle8Click = useCallback(() => {
     router.push("/learning-the-meaning-of-differ");
-  }, [router]);
-
-  const onRectangle9Click = useCallback(() => {
-    router.push("/analyze-a-conversation");
-  }, [router]);
-
-  const onFindingredlagsai1ContainerClick = useCallback(() => {
-    router.push("/finding-red-flags");
-  }, [router]);
-
-  const onRectangle11Click = useCallback(() => {
-    router.push("/view-history");
-  }, [router]);
-
-  const onSidebartraitsContainerClick = useCallback(() => {
-    router.push("/different-traits");
   }, [router]);
 
   return (
@@ -50,9 +26,9 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         <div className="absolute top-[401px] left-[411px] w-[418px] h-[158.2px] text-left text-xl">
           <div className="absolute h-[9.48%] w-[3.59%] top-[93.3%] right-[81.82%] bottom-[-2.78%] left-[14.59%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
           <img
-            className="absolute h-[93.55%] w-full top-[0%] right-[0%] bottom-[6.45%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[93.55%] w-full top-[0%] right-[0%] bottom-[6.45%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-53.svg"
+            src="/chat-bubble-5@2x.png"
           />
           <div className="absolute h-[77.12%] w-[82.3%] top-[13.27%] left-[8.85%] tracking-[-0.32px] leading-[21px] inline-block">
             “Bro” refers to a general audience and is a signal for an informal
@@ -62,9 +38,9 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         </div>
         <div className="absolute top-[307px] left-[795px] w-[400px] h-[94.2px] text-left text-xl">
           <img
-            className="absolute h-[88.11%] w-full top-[0%] right-[0%] bottom-[11.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[88.11%] w-full top-[0%] right-[0%] bottom-[11.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-4.svg"
+            src="/chat-bubble-4@2x.png"
           />
           <div className="absolute h-[15.92%] w-[3.75%] top-[88.75%] right-[11.25%] bottom-[-4.67%] left-[85%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
           <div className="absolute w-[79.25%] top-[10.62%] left-[14.25%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -74,9 +50,9 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         </div>
         <div className="absolute top-[123px] left-[411px] w-72 h-[90.2px] text-left text-xl">
           <img
-            className="absolute h-[88.69%] w-full top-[0%] right-[0%] bottom-[11.31%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[88.69%] w-full top-[0%] right-[0%] bottom-[11.31%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-61.svg"
+            src="/chat-bubble-6@2x.png"
           />
           <div className="absolute h-[16.63%] w-[5.21%] top-[88.25%] right-[82.64%] bottom-[-4.88%] left-[12.15%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
           <div className="absolute h-[69.84%] w-[88.89%] top-[18.85%] left-[8.33%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -85,14 +61,14 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         </div>
         <div className="absolute top-[213px] left-[1019px] w-[193px] h-[76.2px] text-left text-xl">
           <img
-            className="absolute h-[86.61%] w-[88.6%] top-[0%] right-[11.4%] bottom-[13.39%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[86.61%] w-[88.6%] top-[0%] right-[11.4%] bottom-[13.39%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-32.svg"
+            src="/chat-bubble-3@2x.png"
           />
           <img
-            className="absolute h-[27.82%] w-[10.98%] top-[72.18%] right-[34.09%] bottom-[0%] left-[54.92%] max-w-full overflow-hidden max-h-full"
+            className="absolute h-[27.82%] w-[10.98%] top-[72.18%] right-[34.09%] bottom-[0%] left-[54.92%] max-w-full overflow-hidden max-h-full object-contain"
             alt=""
-            src="/rectangle-58.svg"
+            src="/rectangle-58@2x.png"
           />
           <div className="absolute h-[35.43%] w-[88.08%] top-[28.87%] left-[11.92%] tracking-[-0.32px] leading-[21px] inline-block">
             “Bro” and “lol”
@@ -113,18 +89,15 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
           />
         </div>
         <div className="absolute top-[644px] left-[19px] w-[276px] h-[58px]">
-          <div
-            className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200 cursor-pointer"
-            onClick={onRectangle4Click}
-          />
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" />
           <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
             Log Out
           </div>
         </div>
         <img
-          className="absolute top-[31px] left-[258px] w-[26.6px] h-[22.9px]"
+          className="absolute top-[31px] left-[258px] w-[26.6px] h-[22.9px] object-cover"
           alt=""
-          src="/group.svg"
+          src="/group@2x.png"
         />
         <div className="absolute top-[662px] left-[467px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-gainsboro" />
@@ -135,14 +108,14 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         </div>
         <div className="absolute top-[497px] left-[1070px] w-[198px] h-[129.2px] text-left text-77xl">
           <img
-            className="absolute h-[44.89%] w-[57.07%] top-[47.21%] right-[42.93%] bottom-[7.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
+            className="absolute h-[44.89%] w-[57.07%] top-[47.21%] right-[42.93%] bottom-[7.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
-            src="/chat-bubble-62.svg"
+            src="/chat-bubble-6@2x.png"
           />
           <img
-            className="absolute h-[16.41%] w-[10.71%] top-[83.59%] right-[52.93%] bottom-[0%] left-[36.36%] max-w-full overflow-hidden max-h-full"
+            className="absolute h-[16.41%] w-[10.71%] top-[83.59%] right-[52.93%] bottom-[0%] left-[36.36%] max-w-full overflow-hidden max-h-full object-contain"
             alt=""
-            src="/rectangle-58.svg"
+            src="/rectangle-58@2x.png"
           />
           <div className="absolute h-[25.54%] w-[91.92%] top-[0%] left-[8.08%] inline-block">
             ...
@@ -163,10 +136,7 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         </div>
         <div className="absolute top-[162px] left-[19px] w-[276px] h-[81px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div
-              className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100 cursor-pointer"
-              onClick={onRectangle7Click}
-            />
+            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
             <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Communicating with a certain personality
             </div>
@@ -192,10 +162,7 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         </div>
         <div className="absolute top-[316px] left-[19px] w-[276px] h-[83px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div
-              className="absolute h-[69.88%] w-full top-[0%] right-[0%] bottom-[30.12%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-              onClick={onRectangle9Click}
-            />
+            <div className="absolute h-[69.88%] w-full top-[0%] right-[0%] bottom-[30.12%] left-[0%] rounded-2xl bg-whitesmoke-400" />
             <div className="absolute h-[86.75%] w-[43.48%] top-[13.25%] left-[28.26%] tracking-[-0.32px] leading-[21px] inline-block">
               Analyze a conversation
             </div>
@@ -208,16 +175,13 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
             />
           </div>
         </div>
-        <div
-          className="absolute top-[475px] left-[15px] w-[276px] h-[84px] cursor-pointer"
-          onClick={onFindingredlagsai1ContainerClick}
-        >
+        <div className="absolute top-[475px] left-[15px] w-[276px] h-[84px]">
           <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
           <div className="absolute h-[86.9%] w-[32.61%] top-[13.1%] left-[34.42%] tracking-[-0.32px] leading-[21px] inline-block">
             Finding Red Flags
           </div>
           <img
-            className="absolute h-[51.19%] w-[4.35%] top-[13.1%] right-[6.52%] bottom-[35.71%] left-[89.13%] max-w-full overflow-hidden max-h-full object-cover hidden"
+            className="absolute h-[51.19%] w-[4.35%] top-[9.52%] right-[4.71%] bottom-[39.29%] left-[90.94%] max-w-full overflow-hidden max-h-full object-cover hidden"
             alt=""
             src="/more-than@2x.png"
           />
@@ -229,10 +193,7 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
         />
         <div className="absolute top-[560px] left-[15px] w-[276px] h-[84px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div
-              className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400 cursor-pointer"
-              onClick={onRectangle11Click}
-            />
+            <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-400" />
             <div className="absolute h-[84.52%] w-[23.19%] top-[15.48%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
               View History
             </div>
@@ -246,14 +207,8 @@ const LearningTheMeaningOfDiffer: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-[0px] left-[0px] w-[1280px] h-[22px]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
-      </div>
       <div className="absolute top-[416px] left-[17px] w-[276px] h-[79px]">
-        <div
-          className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] cursor-pointer"
-          onClick={onSidebartraitsContainerClick}
-        >
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
           <div className="absolute h-[73.42%] w-full top-[0%] right-[0%] bottom-[26.58%] left-[0%] rounded-2xl bg-whitesmoke-400" />
           <div className="absolute h-[89.87%] w-[27.54%] top-[10.13%] left-[36.59%] tracking-[-0.32px] leading-[21px] inline-block">
             Different Traits
