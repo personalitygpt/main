@@ -18,6 +18,7 @@ const PasswordPage2: NextPage = () => {
           </div>
         </div>
         <div className="absolute top-[34px] left-[38px] w-[146px] h-[65px] text-left">
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-dodgerblue-200" />
           <div className="absolute top-[23.08%] left-[26.03%]">back</div>
         </div>
       </div>

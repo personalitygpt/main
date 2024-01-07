@@ -75,6 +75,7 @@ const ChangePasswordPage: NextPage = () => {
       </div>
       <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden text-11xl text-black border-[3px] border-solid border-black">
         <div className="absolute top-[34px] left-[27px] w-[146px] h-[65px]">
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-dodgerblue-200" />
           <div className="absolute top-[23.08%] left-[26.03%]">back</div>
         </div>
       </div>
