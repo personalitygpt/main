@@ -1,12 +1,9 @@
 import { useState } from "react";
 import axios from 'axios';
-import { Input } from "@chakra-ui/react";
-import Loginbtn from "../components/Loginbtn";
+import { Input, Button, IconButton } from "@chakra-ui/react";
 import DontHaveAnAccountSignUp from "../components/DontHaveAnAccountSignUp";
-import Usernamebox from "../components/Usernamebox";
 import { useNavigate } from "react-router-dom";
 import ForgotPassword from "../components/ForgotPassword";
-import PasswordInput from "../components/Passwordbox";
 
 function LoginPage() {
   const [username,setUsername] = useState('');
@@ -66,16 +63,38 @@ function LoginPage() {
         </div>
       </div>
       <div className="absolute top-[17px] left-[5px] box-border w-[1280px] h-[736px] overflow-hidden text-left text-xl border-[3px] border-solid border-black">
-        <Loginbtn 
-        onClick={logInUser}/>
+        <Button
+        className="absolute top-[453px] left-[711px]"
+        colorScheme="personalitygpt"
+        size="lg"
+        onClick={logInUser}
+        variant="solid"
+        w="178px">
+          Login
+        </Button>
         <DontHaveAnAccountSignUp 
         onClick={onSignUpContainerClick}/>
-        <Usernamebox 
+        <Input
+        className="bg-[transparent] absolute top-[249px] left-[586px] font-inter text-16xl text-darkgray"
+        placeholder="Username"
+        size="lg"
+        width="428px"
+        backgroundColor="#d9d9d9"
+        w="428px"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}/>
-        <PasswordInput 
+        onChange={(e) => setUsername(e.target.value)}
+        />
+        <Input
+        className="bg-[transparent] absolute top-[343px] left-[586px] font-inter text-16xl text-darkgray"
+        type='password'
+        placeholder="Password"
+        size="lg"
+        width="428px"
+        backgroundColor="#d9d9d9"
+        w="428px"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}/>
+        onChange={(e) => setPassword(e.target.value)}
+        />
         <div
           className="absolute top-[418px] left-[845px] w-44 h-[25px] cursor-pointer"
           onClick={onForgotPasswordContainerClick}

@@ -1,10 +1,8 @@
-import { Input } from "@chakra-ui/react";
+import { Input, Button, IconButton } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import BackbtnForgotpwd from "../components/BackbtnForgotpwd";
-import Confirmbtnpwdpg from "../components/Confirmbtnpwdpg";
-import PasswordInput from "../components/Passwordbox1";
 
 function SignUpPage() {
   const [email,setEmail] = useState('');
@@ -59,10 +57,26 @@ function SignUpPage() {
         >
           <BackbtnForgotpwd />
         </div>
-        <Confirmbtnpwdpg onClick={registerUser}/>
-        <PasswordInput 
+        <Button
+        className="absolute top-[524px] left-[704px]"
+        colorScheme="personalitygpt"
+        size="lg"
+        variant="solid"
+        w="178px"
+        onClick={registerUser}>
+          Create
+        </Button>
+        <Input
+        className="bg-[transparent] absolute top-[420px] left-[603px] font-inter text-16xl text-darkgray"
+        type='password'
+        placeholder="Password"
+        size="lg"
+        width="428px"
+        backgroundColor="#d9d9d9"
+        w="428px"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}/>
+        onChange={(e) => setPassword(e.target.value)}
+        />
         <Input
           className="bg-[transparent] absolute top-[333px] left-[603px] font-inter text-16xl text-darkgray"
           placeholder="Username"
