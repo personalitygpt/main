@@ -1,5 +1,6 @@
 import { Fragment, useEffect } from "react";
 import Head from "next/head";
+import { useState } from "react";
 import type { AppProps } from "next/app";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -8,7 +9,8 @@ import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import "./global.css";
 
-export default function MyApp(props: AppProps) {
+
+export function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
   useEffect(() => {
     // Remove the server-side injected CSS.
