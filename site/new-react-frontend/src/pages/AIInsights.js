@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const AIInsights = () => {
+
+  const navigate = useNavigate();
+
+  const onLogOutClick = () => {
+    navigate("/");
+  };
+
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute h-[96.17%] w-[24.3%] top-[3.56%] right-[75.7%] bottom-[0.26%] left-[0%] bg-lightsteelblue" />
@@ -62,7 +71,7 @@ const AIInsights = () => {
         </div>
         <div className="absolute top-[636px] left-[21px] w-[276px] h-[58px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" />
-          <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
+          <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block" onClick={onLogOutClick}>
             Log Out
           </div>
         </div>
