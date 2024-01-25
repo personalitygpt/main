@@ -3,7 +3,9 @@ from flask import Flask, request, jsonify, session
 from flask_bcrypt import Bcrypt #pip install Flask-Bcrypt = https://pypi.org/project/Flask-Bcrypt/
 from flask_cors import CORS, cross_origin #ModuleNotFoundError: No module named 'flask_cors' = pip install Flask-Cors
 from models import db, User
- 
+from password_generator import PasswordGenerator
+from redmail import gmail
+
 app = Flask(__name__)
  
 app.config['SECRET_KEY'] = 'cairocoders-ednalan'
@@ -15,7 +17,11 @@ SQLALCHEMY_ECHO = True
 bcrypt = Bcrypt(app) 
 CORS(app, supports_credentials=True)
 db.init_app(app)
-  
+pwo = PasswordGenerator()
+
+gmail.username = "personalitygpt@asdrp.org"
+gmail.password = "cscbhjopnfxbjyrb"
+
 with app.app_context():
     db.create_all()
  
@@ -61,6 +67,33 @@ def login_user():
       
     session["user_id"] = user.id
   
+    return jsonify({
+        "id": user.id,
+        "email": user.email
+    })
+
+@app.route("/resetpwd", methods=["POST"])
+def resetpwd():
+    email = request.json["email"]
+    username = request.json["username"]
+
+    user = User.query.filter_by(username=username).first()
+
+    if user is None:
+        return jsonify({"error": "Unauthorized Access"}), 401
+
+    password = pwo.non_duplicate_password(10)
+    user.password = bcrypt.generate_password_hash(password)
+    gmail.send(
+        subject="Password reset",
+        receivers=[email],
+        text=f"This is your new password: {password}"
+    )
+
+    db.session.commit()
+
+    session['user_id'] = user.id
+
     return jsonify({
         "id": user.id,
         "email": user.email

@@ -34,7 +34,7 @@ function LoginPage() {
                 alert("Invalid credentials");
             }
         });
-    }
+    }     
 }
 
   const onForgotPasswordContainerClick = () => {
