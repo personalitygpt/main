@@ -193,6 +193,7 @@ What would you like to do? Indicate with the number next to the function
 2. Communicate with another personality
 3. Learning the meaning of different phrases
 4. Learning about different traits
+5. Exit
 """))
     while func != 5:
         question = input("Ask a question: ")
@@ -211,5 +212,6 @@ What would you like to do? Indicate with the number next to the function.
 2. Communicate with another personality
 3. Learning the meaning of different phrases
 4. Learning about different traits
+5. Exit
 """))
             
