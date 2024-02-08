@@ -1,12 +1,12 @@
 import os
 import openai
-from langchain_openai import OpenAI
+from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain_core.prompts import PromptTemplate
 
 openai_api_key = os.environ["PERSONALITYGPT_KEY"]
 
-llm = OpenAI(temperature = 1, openai_api_key = openai_api_key, model = 'gpt-4')
+llm = ChatOpenAI(model = 'gpt-4', temperature = 1, openai_api_key = openai_api_key)
 # New Chat function
 def new_chat(question):
     prompt = PromptTemplate(
@@ -187,15 +187,15 @@ def different_traits(question):
 #Analyzing a conversation 
 
 if __name__ == "__main__":
-    question = input("Ask a question: ")
-    while question != "Exit" or question != 'exit':
-        func = int(input("""
-                        What would you like to do? Indicate with the number next to the function
-                        1. New Chat
-                        2. Communicate with another personality
-                        3. Learning the meaning of different phrases
-                        4. Learning about different traits
-                        """))
+    func = int(input("""
+What would you like to do? Indicate with the number next to the function
+1. New Chat
+2. Communicate with another personality
+3. Learning the meaning of different phrases
+4. Learning about different traits
+"""))
+    while func != 5:
+        question = input("Ask a question: ")
         match func:
             case 1:
                 print(new_chat(question))
@@ -205,5 +205,11 @@ if __name__ == "__main__":
                 print(learning_meaning(question))
             case 4:
                 print(different_traits(question))
-        
-        question = input("Ask a question: ")
+        func = int(input("""
+What would you like to do? Indicate with the number next to the function.
+1. New Chat
+2. Communicate with another personality
+3. Learning the meaning of different phrases
+4. Learning about different traits
+"""))
+            
