@@ -4,9 +4,9 @@ from langchain_openai import OpenAI
 from langchain.chains import LLMChain
 from langchain_core.prompts import PromptTemplate
 
-openai_api_key = os.environ["OPENAI_API_KEY"]
+openai_api_key = os.environ["PERSONALITYGPT_KEY"]
 
-llm = OpenAI(temperature = 1)
+llm = OpenAI(temperature = 1, openai_api_key = openai_api_key, model = 'gpt-4')
 # New Chat function
 def new_chat(question):
     prompt = PromptTemplate(
@@ -188,7 +188,7 @@ def different_traits(question):
 
 if __name__ == "__main__":
     question = input("Ask a question: ")
-    while question != "Exit":
+    while question != "Exit" or question != 'exit':
         func = int(input("""
                         What would you like to do? Indicate with the number next to the function
                         1. New Chat
