@@ -77,8 +77,7 @@ const AIInsights = () => {
           <div className="absolute h-[16.29%] w-[4.2%] top-[37.68%] right-[7.35%] bottom-[46.03%] left-[88.45%] rounded-[50%] bg-red" />
         </div>
         <div className="absolute top-[650px] left-[441px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-gainsboro" />
-          <input name="input" type="text" placeholder='Type Here' maxlength="512" id="userinput"/>
+          <input name="input" type="text" placeholder='Type Here' maxlength="512" width="428px" id="userinput"/>
         </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
           <img
