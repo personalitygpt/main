@@ -13,7 +13,7 @@ const AIInsights = () => {
   };
 
   function newBlueBubble() {
-    var msg = document.getElementById("userinput").value()
+    var msg = document.getElementById("userinput").value
     return (
       <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
           <img
