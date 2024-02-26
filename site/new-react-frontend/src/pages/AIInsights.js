@@ -9,7 +9,7 @@ const AIInsights = () => {
   };
 
   const onNewChatClick = () => { 
-    navigate("/");
+    navigate("/ai-insights");
   };
 
   return (
