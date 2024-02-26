@@ -27,11 +27,13 @@ const AIInsights = () => {
     );
   }
 
-  input.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-          event.preventDefault();
-          newBlueBubble();
-      }
+  const input = document.querySelector('#userinput');
+  // Add an event listener to the button that listens for a 'click' event
+  input.addEventListener('click', function(event) {
+    if (event === "Enter") {
+      // Insert the code you want to run when the button is clicked
+      newBlueBubble();
+    }
   });
 
   return (
