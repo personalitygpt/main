@@ -10,6 +10,7 @@ import AIInsights from "./pages/AIInsights";
 import SignUpPage from "./pages/SignUpPage";
 import PersonalityQuiz from "./pages/PersonalityQuiz";
 import LoginPage from "./pages/LoginPage";
+import LearningTheMeaningOfDiffer from "./pages/LearningTheMeaningOfDiffer";
 
 function App() {
   const action = useNavigationType();
@@ -47,6 +48,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/learning-the-meaning-of-different-phrases":
+          title = "";
+          metaDescription = "";
+          break;
     }
 
     if (title) {
@@ -70,7 +75,12 @@ function App() {
       <Route path="/sign-up-page" element={<SignUpPage />} />
       <Route path="/personality-quiz" element={<PersonalityQuiz />} />
       <Route path="/forgot-password-page" element={<ForgotPasswordPage />} />
+      <Route
+        path="/learning-the-meaning-of-different-phrases"
+        element={<LearningTheMeaningOfDiffer />}
+      />
     </Routes>
   );
 }
 export default App;
+

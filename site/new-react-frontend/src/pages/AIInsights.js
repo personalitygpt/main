@@ -12,6 +12,10 @@ const AIInsights = () => {
     navigate("/ai-insights");
   };
 
+  const onLearningMeaningDifferentPhrases = () => {
+    navigate("/learning-the-meaning-of-different-phrases")
+  };
+
   function newBlueBubble() {
     var msg = document.getElementById("userinput").value
     return (
@@ -196,7 +200,7 @@ const AIInsights = () => {
         </div>
         <div className="absolute top-[235px] left-[15px] w-[276px] h-20">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+            <div className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onLearningMeaningDifferentPhrases}/>
             <div className="absolute h-[87.5%] w-[77.54%] top-[12.5%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Learning the meaning of different phrases
             </div>
