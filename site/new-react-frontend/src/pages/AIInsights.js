@@ -8,9 +8,23 @@ const AIInsights = () => {
     navigate("/");
   };
 
-  const onNewChatClick = () => { 
+  const onNewChatClick = (message) => { 
     navigate("/ai-insights");
   };
+
+  const newBlueBubble = () => { 
+    return (
+      <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
+          <img
+            className="absolute h-[88.11%] w-full top-[0%] right-[0%] bottom-[11.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
+            alt=""
+            src="/chat-bubble-4@2x.png"
+          />
+          <div className="absolute h-[15.92%] w-[3.75%] top-[88.75%] right-[11.25%] bottom-[-4.67%] left-[85%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
+          <div className="absolute h-[77.49%] w-[83.75%] top-[10.62%] left-[9.75%] tracking-[-0.32px] leading-[21px] inline-block">{message}</div>
+        </div>
+    );
+  }
 
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
@@ -52,10 +66,16 @@ const AIInsights = () => {
         </div>
         <div className="absolute top-[650px] left-[441px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-gainsboro" />
-          <div className="absolute top-[6px] left-[25px] inline-block w-[420px] h-[34px]">
-            {" "}
-            Type Here...
-          </div>
+          <Input
+        className="absolute top-[6px] left-[25px] inline-block w-[420px] h-[34px]"
+        placeholder="Type Here..."
+        size="lg"
+        width="428px"
+        backgroundColor="#d9d9d9"
+        w="428px"
+        value={message}
+        onChange={(message) => newBlueBubble(message.target.value)}
+        />
         </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
           <img
