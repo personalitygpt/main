@@ -91,8 +91,9 @@ const AIInsights = () => {
           <div className="absolute h-[62.12%] w-[78.74%] top-[22.4%] left-[9.71%] tracking-[-0.32px] leading-[21px] inline-block">{`Sure! I could definitely help out. Would you tell me more? `}</div>
           <div className="absolute h-[16.29%] w-[4.2%] top-[37.68%] right-[7.35%] bottom-[46.03%] left-[88.45%] rounded-[50%] bg-red" />
         </div>
+        <div id="emptydiv"></div>
         <div className="absolute top-[650px] left-[441px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
-          <input name="input" type="text" placeholder='Type Here' maxlength="512" width="1000px" id="userinput" onkeypress="handleKeyDown()"/>
+          <input name="input" type="text" placeholder='Type Here' maxlength="512" width="1000px" id="userinput"/>
           <button className="absolute top-[67px] left-[16px] w-[276px] h-[69px]" variant="solid" colorScheme="personalitygpt" onClick={newBlueBubble}>Enter</button>
         </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
