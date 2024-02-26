@@ -28,13 +28,16 @@ const AIInsights = () => {
   }
 
   const input = document.querySelector('#userinput');
-  // Add an event listener to the button that listens for a 'click' event
-  input.addEventListener('click', function(event) {
-    if (event === "Enter") {
-      // Insert the code you want to run when the button is clicked
-      newBlueBubble();
-    }
-  });
+
+  if (input != null) {
+    // Add an event listener to the button that listens for a 'click' event
+    input.addEventListener('click', function(event) {
+      if (event === "Enter") {
+        // Insert the code you want to run when the button is clicked
+        newBlueBubble();
+      }
+    });
+  }
 
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
