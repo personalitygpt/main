@@ -12,7 +12,8 @@ const AIInsights = () => {
     navigate("/ai-insights");
   };
 
-  const newBlueBubble = () => { 
+  function newBlueBubble() {
+    var msg = document.getElementById('userinput').value
     return (
       <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
           <img
@@ -21,7 +22,7 @@ const AIInsights = () => {
             src="/chat-bubble-4@2x.png"
           />
           <div className="absolute h-[15.92%] w-[3.75%] top-[88.75%] right-[11.25%] bottom-[-4.67%] left-[85%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
-          <div className="absolute h-[77.49%] w-[83.75%] top-[10.62%] left-[9.75%] tracking-[-0.32px] leading-[21px] inline-block">{message}</div>
+          <div className="absolute h-[77.49%] w-[83.75%] top-[10.62%] left-[9.75%] tracking-[-0.32px] leading-[21px] inline-block">{msg}</div>
         </div>
     );
   }
@@ -66,16 +67,7 @@ const AIInsights = () => {
         </div>
         <div className="absolute top-[650px] left-[441px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-gainsboro" />
-          <Input
-        className="absolute top-[6px] left-[25px] inline-block w-[420px] h-[34px]"
-        placeholder="Type Here..."
-        size="lg"
-        width="428px"
-        backgroundColor="#d9d9d9"
-        w="428px"
-        value={message}
-        onChange={(message) => newBlueBubble(message.target.value)}
-        />
+          <input name="input" type="text" placeholder='Type Here' maxlength="512" id="userinput" class="searchField" onchange={newBlueBubble()}/>
         </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
           <img
