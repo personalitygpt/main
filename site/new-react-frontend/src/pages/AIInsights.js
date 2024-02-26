@@ -12,8 +12,7 @@ const AIInsights = () => {
     navigate("/ai-insights");
   };
 
-  function newBlueBubble() {
-    var msg = document.getElementById('userinput').value
+  function newBlueBubble(msg) {
     return (
       <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
           <img
@@ -34,7 +33,7 @@ const AIInsights = () => {
     input.addEventListener('click', function(event) {
       if (event === "Enter") {
         // Insert the code you want to run when the button is clicked
-        newBlueBubble();
+        newBlueBubble(input);
       }
     });
   }
