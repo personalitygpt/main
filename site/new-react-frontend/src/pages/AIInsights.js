@@ -8,15 +8,17 @@ const AIInsights = () => {
     navigate("/");
   };
 
+  const onNewChatClick = () => { 
+    navigate("/");
+  };
+
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute h-[96.17%] w-[24.3%] top-[3.56%] right-[75.7%] bottom-[0.26%] left-[0%] bg-lightsteelblue" />
       <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
         <div className="absolute h-[54.21%] w-[2.5%] top-[5.71%] right-[0%] bottom-[40.08%] left-[97.5%] bg-gainsboro" />
         <div className="absolute top-[51px] left-[342px] w-[902px] h-[72px] text-21xl">
-          <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">
-            New Chat
-          </div>
+          <button className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">New Chat</button>
         </div>
         <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
           <img
@@ -80,7 +82,7 @@ const AIInsights = () => {
           alt=""
           src="/group@2x.png"
         />
-        <div className="absolute top-[67px] left-[16px] w-[276px] h-[69px]">
+        <button className="absolute top-[67px] left-[16px] w-[276px] h-[69px]" onClick={onNewChatClick}>
           <div className="absolute h-[84.06%] w-full top-[15.94%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightgray" />
           <div className="absolute h-full w-full top-[0%] right-[-1.09%] bottom-[0%] left-[1.09%]">
             <div className="absolute h-[72.46%] w-[48.55%] top-[44.93%] left-[25.36%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -92,7 +94,7 @@ const AIInsights = () => {
               src="/more-than@2x.png"
             />
           </div>
-        </div>
+        </button>
         <div className="absolute top-[154px] left-[17px] w-[276px] h-[81px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
             <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
