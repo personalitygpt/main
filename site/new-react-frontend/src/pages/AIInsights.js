@@ -12,7 +12,8 @@ const AIInsights = () => {
     navigate("/ai-insights");
   };
 
-  function newBlueBubble(msg) {
+  function newBlueBubble() {
+    var msg = document.getElementById("userinput").value()
     return (
       <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
           <img
@@ -38,19 +39,19 @@ const AIInsights = () => {
   //   });
   // }
 
-  function handleKeyDown(event) {
-    if (event.key === "Enter") {
-        const messageInput = document.getElementById("userinput");
-        const message = messageInput.value;
+//   function handleKeyDown(event) {
+//     if (event.key === "Enter") {
+//         const messageInput = document.getElementById("userinput");
+//         const message = messageInput.value;
 
-        if (message.trim() !== "") {
-            // Store or process the message as needed
-            newBlueBubble(message)
-            // Clear the input field
-            messageInput.value = "";
-        }
-    }
-}
+//         if (message.trim() !== "") {
+//             // Store or process the message as needed
+//             newBlueBubble(message)
+//             // Clear the input field
+//             messageInput.value = "";
+//         }
+//     }
+// }
 
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
@@ -92,6 +93,7 @@ const AIInsights = () => {
         </div>
         <div className="absolute top-[650px] left-[441px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
           <input name="input" type="text" placeholder='Type Here' maxlength="512" width="1000px" id="userinput" onkeypress="handleKeyDown()"/>
+          <button className="absolute top-[67px] left-[16px] w-[276px] h-[69px]" onClick={newBlueBubble}>Enter</button>
         </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
           <img
