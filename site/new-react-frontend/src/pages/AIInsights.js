@@ -78,7 +78,7 @@ const AIInsights = () => {
         </div>
         <div className="absolute top-[650px] left-[441px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-gainsboro" />
-          <input name="input" type="text" placeholder='Type Here' maxlength="512" id="userinput" class="searchField" onchange={newBlueBubble()}/>
+          <input name="input" type="text" placeholder='Type Here' maxlength="512" id="userinput"/>
         </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
           <img
