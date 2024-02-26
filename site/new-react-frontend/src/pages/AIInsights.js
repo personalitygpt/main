@@ -27,6 +27,13 @@ const AIInsights = () => {
     );
   }
 
+  input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+          event.preventDefault();
+          newBlueBubble();
+      }
+  });
+
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute h-[96.17%] w-[24.3%] top-[3.56%] right-[75.7%] bottom-[0.26%] left-[0%] bg-lightsteelblue" />
