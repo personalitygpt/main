@@ -15,7 +15,7 @@ const AIInsights = () => {
   function newBlueBubble() {
     var msg = document.getElementById("userinput").value
     return (
-      <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl">
+      <div className="absolute top-[272px] left-[829px] w-[400px] h-[94.2px] text-left text-xl" style="transform: translate(300px,300px);">
           <img
             className="absolute h-[88.11%] w-full top-[0%] right-[0%] bottom-[11.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full object-cover"
             alt=""
@@ -23,7 +23,7 @@ const AIInsights = () => {
           />
           <div className="absolute h-[15.92%] w-[3.75%] top-[88.75%] right-[11.25%] bottom-[-4.67%] left-[85%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
           <div className="absolute h-[77.49%] w-[83.75%] top-[10.62%] left-[9.75%] tracking-[-0.32px] leading-[21px] inline-block">{msg}</div>
-        </div>
+      </div>
     );
   }
 
@@ -93,7 +93,7 @@ const AIInsights = () => {
         </div>
         <div className="absolute top-[650px] left-[441px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
           <input name="input" type="text" placeholder='Type Here' maxlength="512" width="1000px" id="userinput" onkeypress="handleKeyDown()"/>
-          <button className="absolute top-[67px] left-[16px] w-[276px] h-[69px]" onClick={newBlueBubble}>Enter</button>
+          <button className="absolute top-[67px] left-[16px] w-[276px] h-[69px]" variant="solid" colorScheme="personalitygpt" onClick={newBlueBubble}>Enter</button>
         </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
           <img
