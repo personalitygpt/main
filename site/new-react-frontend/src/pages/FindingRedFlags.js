@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
 const FindingRedFlags = () => {
+
+  const navigate = useNavigate();
+  
   const onRectangleClick = () => {
     navigate("/learning-the-meaning-of-different-phrases");
   };
