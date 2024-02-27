@@ -16,6 +16,10 @@ const AIInsights = () => {
     navigate("/learning-the-meaning-of-different-phrases")
   };
 
+  const onRedFlagsClick = () => {
+    navigate("/red-flags")
+  };
+
   function newBlueBubble() {
     var msg = document.getElementById("userinput").value
     return (
@@ -217,7 +221,7 @@ const AIInsights = () => {
         </div>
       </div>
       <div className="absolute top-[489px] left-[17px] w-[276px] h-[84px]">
-        <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+        <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onRedFlagsClick}/>
         <div className="absolute h-[86.9%] w-[32.61%] top-[13.1%] left-[34.42%] tracking-[-0.32px] leading-[21px] inline-block">
           Finding Red Flags
         </div>

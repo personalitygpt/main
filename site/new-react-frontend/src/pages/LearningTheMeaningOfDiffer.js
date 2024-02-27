@@ -15,6 +15,10 @@ const LearningTheMeaningOfDiffer = () => {
   const onAIInsightsClick = () => {
     navigate("/ai-insights");
   };
+
+  const onRedFlagsClick = () => {
+    navigate("/red-flags")
+  };
   
   return (
     <div className="w-full relative bg-white h-[758px] overflow-hidden text-center text-base text-black font-inter">
@@ -181,7 +185,7 @@ const LearningTheMeaningOfDiffer = () => {
           />
         </div>
         <div className="absolute top-[475px] left-[15px] w-[276px] h-[84px]">
-          <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+          <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onRedFlagsClick}/>
           <div className="absolute h-[86.9%] w-[32.61%] top-[13.1%] left-[34.42%] tracking-[-0.32px] leading-[21px] inline-block">
             Finding Red Flags
           </div>

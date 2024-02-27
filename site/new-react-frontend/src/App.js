@@ -11,6 +11,7 @@ import SignUpPage from "./pages/SignUpPage";
 import PersonalityQuiz from "./pages/PersonalityQuiz";
 import LoginPage from "./pages/LoginPage";
 import LearningTheMeaningOfDiffer from "./pages/LearningTheMeaningOfDiffer";
+import FindingRedFlags from "./pages/FindingRedFlags";
 
 function App() {
   const action = useNavigationType();
@@ -52,6 +53,10 @@ function App() {
           title = "";
           metaDescription = "";
           break;
+      case "/red-flags":
+            title = "";
+            metaDescription = "";
+            break;
     }
 
     if (title) {
@@ -78,6 +83,10 @@ function App() {
       <Route
         path="/learning-the-meaning-of-different-phrases"
         element={<LearningTheMeaningOfDiffer />}
+      />
+      <Route
+        path="/red-flags"
+        element={<FindingRedFlags />}
       />
     </Routes>
   );
