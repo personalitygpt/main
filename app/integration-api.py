@@ -181,6 +181,45 @@ def different_traits(question):
 
     return chain.invoke(question)["text"]
 
+# Red Flags
+def red_flags(question):
+   prompt = PromptTemplate(
+   input_variables=["question"], template = """
+    You are PersonalityGPT, a chatbot that can read personalities based off of the NEOFFI test.
+
+    Using the NEOFFI test results of the user below in T-scores (from 0 to >80), create responses to the user's questions
+    that enables the user to improve their personality traits below to scores above 80. Do not make the answer you give to the user too long.
+    You must respond in a casual tone without slang. Remember everything from previous conversations.
+
+    In this chat you will analyze a user's conversation and using the OpenAI library you will determine whether the person/people they are talking to are red flags or not. You will point out what behavior causes them to be a red flag or whether it is a misunderstanding. And you will suggest possible responses based off of the conversation. 
+
+    Use this example as guidance to see what I mean:
+
+    User: 'This person told me that I am ugly because I have dark skin. Are they a red flag or not? What should I say to them?'
+
+    System: "Yes, the person who made that comment is definitely a red flag. Criticizing someone's appearance based on their skin color is not only hurtful but also indicative of prejudice or racism. 
+
+    In this response it is important that you assert your boundaries firmly and express how that comment made you feel:
+
+    "What you said about my skin color is offensive and disrespectful. I value and embrace how I look and I won't tolerate you speaking to me like that."
+    "
+
+    Neuroticism = 30
+    Extraversion = 99
+    Openness = 57
+    Agreeableness = 45
+    Conscientiousness = 49
+
+    Age = 20
+
+    Using all this information, answer this question from the user: {question}
+    """
+   )
+
+   chain = LLMChain(llm = llm, prompt = prompt)
+
+   return chain.invoke(question)["text"]
+
 
 # Personality determiner from the response function
 
