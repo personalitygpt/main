@@ -18,7 +18,7 @@ const AIInsights = () => {
 
   const onRedFlagsClick = () => {
     navigate("/red-flags")
-  };
+  }; 
 
   function newBlueBubble() {
     var msg = document.getElementById("userinput").value
@@ -144,7 +144,7 @@ const AIInsights = () => {
         </button>
         <div className="absolute top-[154px] left-[17px] w-[276px] h-[81px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
+            <button className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
             <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Communicating with a certain personality
             </div>
