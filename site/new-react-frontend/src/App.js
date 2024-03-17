@@ -12,6 +12,9 @@ import PersonalityQuiz from "./pages/PersonalityQuiz";
 import LoginPage from "./pages/LoginPage";
 import LearningTheMeaningOfDiffer from "./pages/LearningTheMeaningOfDiffer";
 import FindingRedFlags from "./pages/FindingRedFlags";
+import AnalyzeAConversation from "./pages/AnalyzeAConversation";
+import DifferentTraits from "./pages/DifferentTraits";
+import ViewHistory from "./pages/ViewHistory";
 
 function App() {
   const action = useNavigationType();
@@ -57,6 +60,18 @@ function App() {
             title = "";
             metaDescription = "";
             break;
+      case "/different-traits":
+              title = "";
+              metaDescription = "";
+              break;
+      case "/analyze-conv":
+              title = "";
+              metaDescription = "";
+              break;
+      case "/view-hist":
+              title = "";
+              metaDescription = "";
+              break;
     }
 
     if (title) {
@@ -87,6 +102,18 @@ function App() {
       <Route
         path="/red-flags"
         element={<FindingRedFlags />}
+      />
+      <Route
+        path="/different-traits"
+        element={<DifferentTraits />}
+      />
+      <Route
+        path="/analyze-conv"
+        element={<AnalyzeAConversation />}
+      />
+      <Route
+        path="/view-hist"
+        element={<ViewHistory />}
       />
     </Routes>
   );
