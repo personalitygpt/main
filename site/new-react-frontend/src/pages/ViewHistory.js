@@ -1,4 +1,37 @@
+import { useNavigate } from "react-router-dom";
+import {Input, Button} from "@chakra-ui/react";
+
 const ViewHistory = () => {
+  const navigate = useNavigate();
+
+  const onLogOutClick = () => {
+    navigate("/");
+  };
+
+  const onRedFlagsClick = () => {
+    navigate("/red-flags")
+  };
+
+  const onAIInsightsClick = () => {
+    navigate("/ai-insights");
+  };
+
+  const onLearningMeaningDifferentPhrases = () => {
+    navigate("/learning-the-meaning-of-different-phrases")
+  };
+
+  const onViewHistory = () => {
+    navigate("/view-hist")
+  };
+
+  const onDifferentTraits = () => {
+    navigate("/different-traits")
+  };
+
+  const onAnalyzeConvo = () => {
+    navigate('/analyze-conv')
+  };
+
   return (
     <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute top-[0px] left-[0px] w-[1280px] overflow-hidden flex flex-col items-center justify-start">
@@ -17,14 +50,14 @@ const ViewHistory = () => {
               />
             </div>
             <div className="absolute h-[9.38%] w-[21.56%] top-[12.77%] right-[76.48%] bottom-[77.85%] left-[1.95%]">
-              <div className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+              <div className="absolute h-[84.06%] w-full top-[0%] right-[0%] bottom-[15.94%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onAIInsightsClick}/>
               <div className="absolute h-[72.46%] w-[48.55%] top-[27.54%] left-[25.36%] tracking-[-0.32px] leading-[21px] inline-block">
                 New Chat
               </div>
               <img
                 className="absolute h-[62.32%] w-[4.35%] top-[13.04%] right-[3.62%] bottom-[24.64%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
-                src="/newchatmorethancommunicating@2x.png"
+                src="/more-than@2x.png"
               />
             </div>
             <div className="absolute h-[11.01%] w-[21.56%] top-[23.23%] right-[76.41%] bottom-[65.76%] left-[2.03%]">
@@ -35,11 +68,11 @@ const ViewHistory = () => {
               <img
                 className="absolute h-[53.09%] w-[4.35%] top-[6.17%] right-[4.35%] bottom-[40.74%] left-[91.3%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
-                src="/newchatmorethancommunicating@2x.png"
+                src="/more-than@2x.png"
               />
             </div>
             <div className="absolute h-[11.28%] w-[21.56%] top-[45.52%] right-[76.56%] bottom-[43.21%] left-[1.88%]">
-              <div className="absolute h-[69.88%] w-full top-[-12.05%] right-[0%] bottom-[42.17%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+              <div className="absolute h-[69.88%] w-full top-[-12.05%] right-[0%] bottom-[42.17%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onAnalyzeConvo}/>
               <div className="absolute h-[86.75%] w-[43.48%] top-[1.2%] left-[28.26%] tracking-[-0.32px] leading-[21px] inline-block">
                 Analyze a conversation
               </div>
@@ -50,7 +83,7 @@ const ViewHistory = () => {
               />
             </div>
             <div className="absolute h-[10.73%] w-[21.56%] top-[56.11%] right-[76.41%] bottom-[33.15%] left-[2.03%]">
-              <div className="absolute h-[73.42%] w-full top-[-12.66%] right-[0%] bottom-[39.24%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+              <div className="absolute h-[73.42%] w-full top-[-12.66%] right-[0%] bottom-[39.24%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onDifferentTraits}/>
               <img
                 className="absolute h-[55.7%] w-[4.35%] top-[-3.8%] right-[3.62%] bottom-[48.1%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
@@ -62,24 +95,19 @@ const ViewHistory = () => {
             </div>
             <div className="absolute top-[502px] left-[12px] w-[276px] h-[82px]" />
             <div className="absolute top-[554px] left-[25px] w-[276px] h-[82px]">
-              <div className="absolute h-[70.73%] w-full top-[0%] right-[0%] bottom-[29.27%] left-[0%] rounded-2xl bg-lightgray" />
+              <div className="absolute h-[70.73%] w-full top-[0%] right-[0%] bottom-[29.27%] left-[0%] rounded-2xl bg-lightgray" onClick = {onViewHistory}/>
               <div className="absolute h-[86.59%] w-[23.19%] top-[13.41%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
                 View History
               </div>
-              <img
-                className="absolute h-[52.44%] w-[4.35%] top-[10.98%] right-[4.35%] bottom-[36.59%] left-[91.3%] max-w-full overflow-hidden max-h-full object-cover"
-                alt=""
-                src="/newchatmorethancommunicating@2x.png"
-              />
             </div>
             <div className="absolute h-[7.88%] w-[21.56%] top-[86.41%] right-[76.48%] bottom-[5.71%] left-[1.95%]">
-              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" />
+              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" onClick = {onLogOutClick}/>
               <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
                 Log Out
               </div>
             </div>
             <div className="absolute h-[11.41%] w-[21.56%] top-[65.76%] right-[76.48%] bottom-[22.83%] left-[1.95%]">
-              <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+              <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onRedFlagsClick}/>
               <img
                 className="absolute h-[52.38%] w-[4.35%] top-[9.52%] right-[3.62%] bottom-[38.1%] left-[92.03%] max-w-full overflow-hidden max-h-full object-cover"
                 alt=""
@@ -110,8 +138,13 @@ const ViewHistory = () => {
             </div>
             <div className="absolute top-[88px] left-[429px] w-[667px] h-[69px] text-[24px]">
               <div className="absolute h-[82.61%] w-[85.01%] top-[0%] right-[5.55%] bottom-[17.39%] left-[9.45%] bg-white" />
-              <div className="absolute h-[68.12%] w-full top-[31.88%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">
-                Search for terms...
+              <div className="absolute h-[75.12%] w-full top-[15.88%] left-[3%] tracking-[-0.32px] leading-[-100px] inline-block">
+              <Input
+              placeholder="Search for terms..."
+              size="lg"
+              width="428px"
+              w="428px"
+              />
               </div>
               <img
                 className="absolute h-[52.17%] w-[6.75%] top-[18.84%] right-[80.81%] bottom-[28.99%] left-[12.44%] max-w-full overflow-hidden max-h-full object-cover"
@@ -120,14 +153,7 @@ const ViewHistory = () => {
               />
               <div className="absolute h-[78.26%] w-[0.15%] top-[6.52%] right-[89.13%] bottom-[15.22%] left-[10.72%] box-border border-r-[1px] border-solid border-black" />
               <div className="absolute h-[78.26%] w-[0.15%] top-[7.97%] right-[10.12%] bottom-[13.77%] left-[89.73%] box-border border-r-[1px] border-solid border-black" />
-              <img
-                className="absolute h-[1.45%] w-[79.01%] top-[84.06%] right-[10.19%] bottom-[14.49%] left-[10.79%] max-w-full overflow-hidden max-h-full object-contain"
-                alt=""
-              />
-              <img
-                className="absolute h-[1.45%] w-[79.01%] top-[7.25%] right-[10.19%] bottom-[91.3%] left-[10.79%] max-w-full overflow-hidden max-h-full object-contain"
-                alt=""
-              />
+              
             </div>
             <div className="absolute top-[292px] left-[361px] w-[304px] overflow-hidden flex flex-col items-center justify-start text-left text-xl">
               <div className="self-stretch relative h-[99.2px]">
@@ -158,10 +184,6 @@ const ViewHistory = () => {
               </div>
             </div>
           </div>
-          <img
-            className="absolute top-[257px] left-[18px] w-[276px] h-[58px]"
-            alt=""
-          />
         </div>
       </div>
       <div className="absolute top-[-391px] left-[1212px] w-[68px] h-[684px] overflow-hidden flex flex-col items-center justify-end">

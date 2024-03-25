@@ -4,22 +4,34 @@ import { useNavigate } from "react-router-dom";
 const LearningTheMeaningOfDiffer = () => {
   const navigate = useNavigate();
 
-  const onRectangleClick = () => {
-    navigate("/learning-the-meaning-of-different-phrases");
-  };
-
   const onLogOutClick = () => {
     navigate("/");
-  };
-
-  const onAIInsightsClick = () => {
-    navigate("/ai-insights");
   };
 
   const onRedFlagsClick = () => {
     navigate("/red-flags")
   };
-  
+ 
+  const onAIInsightsClick = () => {
+    navigate("/ai-insights");
+  };
+
+  const onLearningMeaningDifferentPhrases = () => {
+    navigate("/learning-the-meaning-of-different-phrases")
+  };
+
+  const onViewHistory = () => {
+    navigate("/view-hist")
+  };
+
+  const onDifferentTraits = () => {
+    navigate("/different-traits")
+  };
+
+  const onAnalyzeConvo = () => {
+    navigate('/analyze-conv')
+  };
+
   return (
     <div className="w-full relative bg-white h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute top-[22px] left-[0px] w-[311px] h-[736px]">
@@ -164,7 +176,7 @@ const LearningTheMeaningOfDiffer = () => {
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
             <div
               className="absolute h-[71.25%] w-full top-[0%] right-[0%] bottom-[28.75%] left-[0%] rounded-2xl bg-lightgray cursor-pointer"
-              onClick={onRectangleClick}
+              onClick={onLearningMeaningDifferentPhrases}
             />
             <div className="absolute h-[87.5%] w-[77.54%] top-[12.5%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Learning the meaning of different phrases
@@ -173,7 +185,7 @@ const LearningTheMeaningOfDiffer = () => {
         </div>
         <div className="absolute top-[316px] left-[19px] w-[276px] h-[83px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-[69.88%] w-full top-[0%] right-[0%] bottom-[30.12%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+            <div className="absolute h-[69.88%] w-full top-[0%] right-[0%] bottom-[30.12%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onAnalyzeConvo}/>
             <div className="absolute h-[86.75%] w-[43.48%] top-[13.25%] left-[28.26%] tracking-[-0.32px] leading-[21px] inline-block">
               Analyze a conversation
             </div>
@@ -202,7 +214,7 @@ const LearningTheMeaningOfDiffer = () => {
         />
         <div className="absolute top-[560px] left-[15px] w-[276px] h-[84px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+            <div className="absolute h-[69.05%] w-full top-[0%] right-[0%] bottom-[30.95%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onViewHistory}/>
             <div className="absolute h-[84.52%] w-[23.19%] top-[15.48%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
               View History
             </div>
@@ -216,7 +228,7 @@ const LearningTheMeaningOfDiffer = () => {
       </div>
       <div className="absolute top-[416px] left-[17px] w-[276px] h-[79px]">
         <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-          <div className="absolute h-[73.42%] w-full top-[0%] right-[0%] bottom-[26.58%] left-[0%] rounded-2xl bg-whitesmoke-200" />
+          <div className="absolute h-[73.42%] w-full top-[0%] right-[0%] bottom-[26.58%] left-[0%] rounded-2xl bg-whitesmoke-200" onClick = {onDifferentTraits}/>
           <div className="absolute h-[89.87%] w-[27.54%] top-[10.13%] left-[36.59%] tracking-[-0.32px] leading-[21px] inline-block">
             Different Traits
           </div>

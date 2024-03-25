@@ -2,8 +2,10 @@
 from flask import Flask, request, jsonify, session
 from flask_bcrypt import Bcrypt #pip install Flask-Bcrypt = https://pypi.org/project/Flask-Bcrypt/
 from flask_cors import CORS, cross_origin #ModuleNotFoundError: No module named 'flask_cors' = pip install Flask-Cors
-from models import db, User
+import firebase_admin
+from firebase_admin import db
 from password_generator import PasswordGenerator
+from models import db, User
 from redmail import gmail
 
 app = Flask(__name__)
@@ -22,15 +24,13 @@ pwo = PasswordGenerator()
 gmail.username = "personalitygpt@asdrp.org"
 gmail.password = "cscbhjopnfxbjyrb"
 
-with app.app_context():
-    db.create_all()
- 
 @app.route("/")
 def hello_world():
     return "Hello, World!"
  
 @app.route("/signup", methods=["POST"])
 def signup():
+
     email = request.json["email"]
     username = request.json["username"]
     password = request.json["password"]
