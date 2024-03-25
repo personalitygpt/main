@@ -4,9 +4,7 @@ import { useState } from "react";
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({
-  apiKey: "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",
-  dangerouslyAllowBrowser: true,
-});
+  apiKey: "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", dangerouslyAllowBrowser: true,});
 
 const AnalyzeAConversation = () => {
   const navigate = useNavigate();
