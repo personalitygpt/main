@@ -8,6 +8,14 @@ const ViewHistory = () => {
     navigate("/");
   };
 
+  const onCommPersonalityclick = () => {
+    navigate('/comm-person');
+  };
+
+  const onSettingsClick = () => {
+    navigate("/profile");
+  };
+
   const onRedFlagsClick = () => {
     navigate("/red-flags")
   };
@@ -61,7 +69,7 @@ const ViewHistory = () => {
               />
             </div>
             <div className="absolute h-[11.01%] w-[21.56%] top-[23.23%] right-[76.41%] bottom-[65.76%] left-[2.03%]">
-              <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
+              <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" onClick = {onCommPersonalityclick}/>
               <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
                 Communicating with a certain personality
               </div>
@@ -121,6 +129,7 @@ const ViewHistory = () => {
               className="absolute h-[3.21%] w-[2.08%] top-[2.58%] right-[77.69%] bottom-[94.21%] left-[20.23%] max-w-full overflow-hidden max-h-full"
               alt=""
               src="/group.svg"
+              onClick = {onSettingsClick}
             />
             <div className="absolute top-[237px] left-[389px] w-[304px] h-[98.2px]" />
             <div className="absolute top-[609px] left-[397px] w-[21.2px] h-[21.2px]">

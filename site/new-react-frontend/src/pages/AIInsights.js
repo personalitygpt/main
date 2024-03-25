@@ -4,14 +4,22 @@ import { useState } from "react";
 import { OpenAI } from "openai";
 
 // Initialize the OpenAI model with the API key
-const openai = new OpenAI({apiKey: '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', dangerouslyAllowBrowser: true});
+const openai = new OpenAI({apiKey: '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', dangerouslyAllowBrowser: true});
 
 const AIInsights = () => {
 
   const navigate = useNavigate();
 
+  const onSettingsClick = () => {
+    navigate("/profile");
+  };
+
   const onLogOutClick = () => {
     navigate("/");
+  };
+
+  const onCommPersonalityclick = () => {
+    navigate('/comm-person');
   };
 
   const onNewChatClick = () => { 
@@ -149,13 +157,6 @@ const AIInsights = () => {
            </Button>
          </form>
        </div>
-        <div className="absolute top-[217px] left-[21px] w-[65px] h-[65px]">
-          <img
-            className="absolute top-[0px] left-[0px] w-[65px] h-[65px] object-cover"
-            alt=""
-            src="/image@2x.png"
-          />
-        </div>
         <div className="absolute top-[217px] left-[346px] w-[65px] h-[65px]">
         </div>
         <div className="absolute top-[487px] left-[346px] w-[65px] h-[65px]">
@@ -170,6 +171,7 @@ const AIInsights = () => {
           className="absolute top-[25px] left-[257px] w-[26.6px] h-[22.9px] object-cover"
           alt=""
           src="/group.svg"
+          onClick = {onSettingsClick}
         />
         <button className="absolute top-[67px] left-[16px] w-[276px] h-[69px]" onClick={onNewChatClick}>
           <div className="absolute h-[84.06%] w-full top-[15.94%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightgray" />
@@ -186,7 +188,7 @@ const AIInsights = () => {
         </button>
         <div className="absolute top-[154px] left-[17px] w-[276px] h-[81px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
+            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" onClick = {onCommPersonalityclick}/>
             <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Communicating with a certain personality
             </div>

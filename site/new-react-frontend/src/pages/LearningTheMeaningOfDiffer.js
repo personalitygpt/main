@@ -1,11 +1,23 @@
-import { Input } from "@chakra-ui/react";
+import { Input, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { OpenAI } from "openai";
+
+const openai = new OpenAI({apiKey: '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', dangerouslyAllowBrowser: true});
 
 const LearningTheMeaningOfDiffer = () => {
   const navigate = useNavigate();
 
   const onLogOutClick = () => {
     navigate("/");
+  };
+
+  const onCommPersonalityclick = () => {
+    navigate('/comm-person');
+  };
+
+  const onSettingsClick = () => {
+    navigate("/profile");
   };
 
   const onRedFlagsClick = () => {
@@ -32,6 +44,78 @@ const LearningTheMeaningOfDiffer = () => {
     navigate('/analyze-conv')
   };
 
+  const [message, setMessage] = useState("");
+  const [chats, setChats] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
+
+  const chat = async (message) => {
+    if (!message.trim()) return; // Enhanced check for an empty message
+
+    setIsTyping(true);
+    window.scrollTo(0, 0); // Scroll to the top
+
+    const newChat = { role: "user", content: message };
+    // Update state immediately to reflect the new chat in UI
+    setChats((prevChats) => [...prevChats, newChat]);
+
+    try {
+      // Create the prompt for the AI response
+      const prompt = `You are PersonalityGPT, a chatbot that can read personalities based off of the NEOFFI test.
+
+      Using the NEOFFI test results of the user below in T-scores (from 0 to >80), create responses to the user's questions 
+      that enables the user to improve their personality traits below to scores above 80. Do not make the answer you give to the user too long.
+      You must respond in an casual tone without slang. Remember everything from previous conversations.
+  
+      The responses must first empathize with the user's situation, making the response personalized to the user and taking the user's T-SCORES into account. Then, the response must include 2-4 numbered bullet points with sub-points that are 1-2 sentences going into detail that answer's the user's question and
+      allow the user to improve their personality test scores without mentioning T-scores at all. THE RESPONSES SHOULD SOUND LIKE THE USER THEMSELF TALKING. In the end, summarize the answer into a small paragraph of 3 sentences. When listing out the solutions, do not list out the reason in numbers. Give at least 3 reasons/ideas please. 
+  
+      Use this example for guidance:
+  
+      User: 'How can I stop my teacher from abusing his power to give me a bad grade?'
+  
+      System: "It's really tough to feel like you're being treated unfairly, especially when it comes to grades. Here's what you might consider doing:
+  
+      Open a dialogue:
+      
+      Try to have a calm, private conversation with your teacher about your concerns.
+      Express that you're eager to understand how you can improve and achieve better grades.
+  
+      Involve a third party:
+  
+      If the conversation doesn't help, consider involving a department head or academic advisor.
+      They can provide a neutral perspective and facilitate a more productive discussion.
+  
+      Remember, it's about staying proactive and seeking clarity on how to enhance your performance, while also ensuring that you're being evaluated fairly. Keep the focus on your work and maintain open communication with both your teacher and other school officials if necessary."
+      
+      \n\nHuman: ${message}\nAI:`;
+      
+      // Get the response from OpenAI
+      const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "system", content: prompt}],
+        temperature: 0.7,
+        max_tokens: 450,
+      });
+
+      // Check if response and response.choices exist to avoid type error
+      if (response && response.choices) {
+        const aiText = response.choices[0].message.content;
+        const aiResponse = { role: "ai", content: aiText };
+        // Ensure AI response is not empty and then update the chats
+        if (aiResponse.content) {
+          setChats((prevChats) => [...prevChats, aiResponse]);
+        }
+      } else {
+        console.error("OpenAI response is undefined or does not contain a message.");
+      }
+    } catch (error) {
+      console.error("Failed to fetch OpenAI response:", error);
+    } finally {
+      setIsTyping(false);
+      window.scrollTo(0, 0); // Scroll to the top
+    }
+  };
+
   return (
     <div className="w-full relative bg-white h-[758px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute top-[22px] left-[0px] w-[311px] h-[736px]">
@@ -41,72 +125,42 @@ const LearningTheMeaningOfDiffer = () => {
         <div className="absolute top-[42px] left-[1248px] w-8 h-[399px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-gainsboro" />
         </div>
+        <div className="absolute top-[100px] left-[441px] w-[696px] h-[248px]" id="chatbox">
+         {chats.map((chat, index) => (
+           <div key={index} className={`p-4 m-2 rounded-lg ${chat.role === "user" ? "bg-lightsteelblue" : "bg-royalblue"}`}>
+             <p className="text-2xl text-black">{typeof chat.content === 'string' ? chat.content : JSON.stringify(chat.content)}</p>
+           </div>
+         )).reverse()}
+       </div>
+       <div className="absolute top-[640px] left-[400px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
+         <form onSubmit={(e) => {
+           e.preventDefault();
+           const message = e.target.elements.messageInput.value;
+           chat(message);
+           e.target.elements.messageInput.value = ''; // Clear input after sending
+         }}>
+           <Input
+               name="messageInput"
+               className="bg-[transparent] absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]"
+               placeholder="Type Here"
+               size="lg"
+               width="696px"
+               w="696px"
+             />
+           <Button
+               className="left-[105%]"
+               colorScheme='blue'
+               type="submit"
+             >
+             Send
+           </Button>
+         </form>
+       </div>
         <div className="absolute top-[42px] left-[309px] w-[902px] h-[72px] text-21xl">
           <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">
             Learning the meaning of different phrases
           </div>
         </div>
-        <div className="absolute top-[401px] left-[411px] w-[418px] h-[158.2px] text-left text-xl">
-          <div className="absolute h-[9.48%] w-[3.59%] top-[93.3%] right-[81.82%] bottom-[-2.78%] left-[14.59%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
-          <img
-            className="absolute h-[93.55%] w-full top-[0%] right-[0%] bottom-[6.45%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/chat-bubble-5.svg"
-          />
-          <div className="absolute h-[77.12%] w-[82.3%] top-[13.27%] left-[8.85%] tracking-[-0.32px] leading-[21px] inline-block">
-            “Bro” refers to a general audience and is a signal for an informal
-            conversation. “lol” or “laugh out loud” is used to indicate when one
-            finds a remark funny.
-          </div>
-        </div>
-        <div className="absolute top-[307px] left-[795px] w-[400px] h-[94.2px] text-left text-xl">
-          <img
-            className="absolute h-[88.11%] w-full top-[0%] right-[0%] bottom-[11.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/chat-bubble-4.svg"
-          />
-          <div className="absolute h-[15.92%] w-[3.75%] top-[88.75%] right-[11.25%] bottom-[-4.67%] left-[85%] bg-dodgerblue-100 [transform:_rotate(-45deg)] [transform-origin:0_0]" />
-          <div className="absolute w-[79.25%] top-[10.62%] left-[14.25%] tracking-[-0.32px] leading-[21px] inline-block">
-            I just took the test and was deemed neurotic. What does this mean
-            and is it bad?
-          </div>
-        </div>
-        <div className="absolute top-[123px] left-[411px] w-72 h-[90.2px] text-left text-xl">
-          <img
-            className="absolute h-[88.69%] w-full top-[0%] right-[0%] bottom-[11.31%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/chat-bubble-1.svg"
-          />
-          <div className="absolute h-[16.63%] w-[5.21%] top-[88.25%] right-[82.64%] bottom-[-4.88%] left-[12.15%] bg-gainsboro [transform:_rotate(-45deg)] [transform-origin:0_0]" />
-          <div className="absolute h-[69.84%] w-[88.89%] top-[18.85%] left-[8.33%] tracking-[-0.32px] leading-[21px] inline-block">
-            Hello! What phrases would you like to learn about?
-          </div>
-        </div>
-        <div className="absolute top-[213px] left-[1019px] w-[193px] h-[76.2px] text-left text-xl">
-          <img
-            className="absolute h-[86.61%] w-[88.6%] top-[0%] right-[11.4%] bottom-[13.39%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/chat-bubble-3.svg"
-          />
-          <img
-            className="absolute h-[27.82%] w-[10.98%] top-[72.18%] right-[34.09%] bottom-[0%] left-[54.92%] max-w-full overflow-hidden max-h-full object-contain"
-            alt=""
-            src="/rectangle-45.svg"
-          />
-          <div className="absolute h-[35.43%] w-[88.08%] top-[28.87%] left-[11.92%] tracking-[-0.32px] leading-[21px] inline-block">
-            “Bro” and “lol”
-          </div>
-        </div>
-        <img
-          className="absolute top-[229px] left-[381px] w-[65px] h-[65px] object-cover"
-          alt=""
-          src="/image-15@2x.png"
-        />
-        <img
-          className="absolute top-[565px] left-[392px] w-[65px] h-[65px] object-cover"
-          alt=""
-          src="/image-15@2x.png"
-        />
         <div className="absolute top-[644px] left-[19px] w-[276px] h-[58px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-dodgerblue-200" onClick ={onLogOutClick}/>
           <div className="absolute h-[32.76%] w-[22.46%] top-[31.03%] left-[38.77%] tracking-[-0.32px] leading-[21px] inline-block">
@@ -117,35 +171,8 @@ const LearningTheMeaningOfDiffer = () => {
           className="absolute top-[31px] left-[258px] w-[26.6px] h-[22.9px]"
           alt=""
           src="/group.svg"
+          onClick = {onSettingsClick}
         />
-        <div className="absolute top-[662px] left-[467px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
-          <Input
-            className="bg-[transparent] absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]"
-            placeholder="Type Here"
-            size="lg"
-            width="696px"
-            w="696px"
-          />
-          <div className="absolute top-[6px] left-[25px] hidden w-[420px] h-[34px]">
-            {" "}
-            Type Here...
-          </div>
-        </div>
-        <div className="absolute top-[497px] left-[1070px] w-[198px] h-[129.2px] text-left text-77xl">
-          <img
-            className="absolute h-[44.89%] w-[57.07%] top-[47.21%] right-[42.93%] bottom-[7.89%] left-[0%] rounded-99981xl max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/chat-bubble-3.svg"
-          />
-          <img
-            className="absolute h-[16.41%] w-[10.71%] top-[83.59%] right-[52.93%] bottom-[0%] left-[36.36%] max-w-full overflow-hidden max-h-full object-contain"
-            alt=""
-            src="/rectangle-45.svg"
-          />
-          <div className="absolute h-[25.54%] w-[91.92%] top-[0%] left-[8.08%] inline-block">
-            ...
-          </div>
-        </div>
         <div className="absolute top-[74px] left-[19px] w-[276px] h-[69px]">
           <div className="absolute h-[84.06%] w-full top-[15.94%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-whitesmoke-100" />
           <div className="absolute h-full w-full top-[0%] right-[-1.09%] bottom-[0%] left-[1.09%]" onClick = {onAIInsightsClick}>
@@ -161,7 +188,7 @@ const LearningTheMeaningOfDiffer = () => {
         </div>
         <div className="absolute top-[162px] left-[19px] w-[276px] h-[81px]">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
+            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" onClick = {onCommPersonalityclick}/>
             <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Communicating with a certain personality
             </div>

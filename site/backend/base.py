@@ -98,6 +98,12 @@ def resetpwd():
         "id": user.id,
         "email": user.email
     })
+
+"""@app.route("/account", methods=["GET"])
+def account():
+    username = request.args.get('username')
+    email = request.args.get('email')
+    return jsonify({"username": username, "email": email})"""
  
 if __name__ == "__main__":
     app.run(debug=True)

@@ -8,6 +8,14 @@ const DifferentTraits = () => {
     navigate("/");
   };
 
+  const onCommPersonalityclick = () => {
+    navigate('/comm-person');
+  };
+
+  const onSettingsClick = () => {
+    navigate("/profile");
+  };
+
   const onRedFlagsClick = () => {
     navigate("/red-flags")
   };
@@ -71,6 +79,7 @@ const DifferentTraits = () => {
               className="absolute h-[3.11%] w-[2.08%] top-[0.82%] right-[76.44%] bottom-[96.07%] left-[21.48%] max-w-full overflow-hidden max-h-full"
               alt=""
               src="/group.svg"
+              onClick = {onSettingsClick}
             />
             <img
               className="absolute h-[54.21%] w-[2.5%] top-[5.71%] right-[0%] bottom-[40.08%] left-[97.5%] max-w-full overflow-hidden max-h-full"
@@ -79,7 +88,7 @@ const DifferentTraits = () => {
             />
             <div className="absolute h-[11.01%] w-[21.56%] top-[15.49%] right-[77.11%] bottom-[73.51%] left-[1.33%]">
               <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-                <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
+                <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" onClick = {onCommPersonalityclick}/>
                 <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
                   Communicating with a certain personality
                 </div>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "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",
   dangerouslyAllowBrowser: true,
 });
 
@@ -13,6 +13,14 @@ const AnalyzeAConversation = () => {
 
   const onLogOutClick = () => {
     navigate("/");
+  };
+
+  const onCommPersonalityclick = () => {
+    navigate('/comm-person');
+  };
+
+  const onSettingsClick = () => {
+    navigate("/profile");
   };
 
   const onRedFlagsClick = () => {
@@ -248,7 +256,7 @@ AI:`;
             </div>
           </div>
           <div className="absolute top-[157px] left-[28px] w-[276px] h-[81px]">
-            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" />
+            <div className="absolute h-[70.37%] w-full top-[0%] right-[0%] bottom-[29.63%] left-[0%] rounded-2xl bg-whitesmoke-100" onClick = {onCommPersonalityclick}/>
             <div className="absolute h-[87.65%] w-[77.17%] top-[12.35%] left-[11.23%] tracking-[-0.32px] leading-[21px] inline-block">
               Communicating with a certain personality
             </div>
@@ -265,6 +273,7 @@ AI:`;
             className="absolute h-[3.21%] w-[2.08%] top-[2.45%] right-[77.53%] bottom-[94.35%] left-[20.39%] max-w-full overflow-hidden max-h-full"
             alt=""
             src="/group.svg"
+            onClick = {onSettingsClick}
           />
         </div>
         <div className="absolute top-[63px] left-[346px] w-[902px] h-[72px] text-21xl">

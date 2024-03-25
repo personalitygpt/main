@@ -24,7 +24,7 @@ function ForgotPasswordPage() {
         .then(function (response) {
           console.log(response);
           //console.log(response.data);
-          navigate("/");
+          navigate("/login-page");
         })
         .catch(function (error) {
           console.log(error, "error");
@@ -36,17 +36,15 @@ function ForgotPasswordPage() {
   };
 
   const onBackButtonContainerClick = () => {
-    navigate("/");
+    navigate("/login-page");
   };
 
   return (
     <div className="relative bg-white w-full h-[737px] overflow-hidden text-left text-31xl text-black font-inter">
       <div className="absolute top-[0px] left-[0px] box-border w-[1280px] h-[737px] overflow-hidden border-[3px] border-solid border-black">
-        <img
-          className="absolute top-[2px] left-[0px] w-[311px] h-[825.5px] object-cover"
-          alt=""
-          src="/forgotpasswordrectangle@2x.png"
-        />
+      <div className="absolute top-[5px] left-[4px] w-[311px] h-[736px]">
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
+      </div>
         <div className="absolute top-[320px] left-[12px] w-[299px] h-[206px] text-center">
           <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">
             <p className="m-0">Welcome to</p>
