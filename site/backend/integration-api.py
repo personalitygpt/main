@@ -3,10 +3,28 @@ import openai
 from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain_core.prompts import PromptTemplate
+from unstructured.partition.pdf import partition_pdf
+from PIL import Image
+
+import chromadb
+import numpy as np
+from langchain.vectorstores import Chroma
+from langchain_experimental.open_clip import OpenCLIPEmbeddings
+
+import base64
+import io
+from io import BytesIO
+
+from operator import itemgetter
+
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnableLambda, RunnablePassthrough,RunnableParallel
+
 
 openai_api_key = os.environ["PERSONALITYGPT_KEY"]
-
-llm = ChatOpenAI(model = 'gpt-4', temperature = 1, openai_api_key = openai_api_key)
+ 
+llm = ChatOpenAI(model = 'gpt-4-vision-preview', temperature = 1, openai_api_key = openai_api_key, max_tokens=2048)
 # New Chat function
 def new_chat(question):
     prompt = PromptTemplate(
@@ -184,34 +202,180 @@ def different_traits(question):
 
 # Personality determiner from the response function
 
-#Analyzing a conversation 
 
-if __name__ == "__main__":
-    func = int(input("""
-What would you like to do? Indicate with the number next to the function
-1. New Chat
-2. Communicate with another personality
-3. Learning the meaning of different phrases
-4. Learning about different traits
-5. Exit
-"""))
-    while func != 5:
-        question = input("Ask a question: ")
-        match func:
-            case 1:
-                print(new_chat(question))
-            case 2:
-                print(new_personality_communication(question))
-            case 3:
-                print(learning_meaning(question))
-            case 4:
-                print(different_traits(question))
-        func = int(input("""
-What would you like to do? Indicate with the number next to the function.
-1. New Chat
-2. Communicate with another personality
-3. Learning the meaning of different phrases
-4. Learning about different traits
-5. Exit
-"""))
+
+# Analyzing a conversation 
+def analyze_convo(question, image):
+
+    path = "./images/"
+
+    file_name = os.listdir(path)
+
+    raw_pdf_elements = partition_pdf(
+        filename=path + file_name[0],
+        extract_images_in_pdf=True,
+        infer_table_structure=True,
+        chunking_strategy="by_title",
+        max_characters=4000,
+        new_after_n_chars=3800,
+        combine_text_under_n_chars=2000,
+        image_output_dir_path=path
+    )
+
+    tables = []
+    texts = []
+    for element in raw_pdf_elements:
+        if "unstructured.documents.elements.Table" in str(type(element)):
+            tables.append(str(element))
+        elif "unstructured.documents.elements.CompositeElement" in str(type(element)):
+            texts.append(str(element))
+    
+    # Create chroma
+    vectorstore = Chroma(
+        collection_name="mm_rag_clip_photos", embedding_function=OpenCLIPEmbeddings()
+    )
+
+    # Get image URIs with .jpg extension only
+    image_uris = sorted(
+        [
+            os.path.join(path, image_name)
+            for image_name in os.listdir(path)
+            if image_name.endswith(".jpg")
+        ]
+    )
+
+    # Add images
+    vectorstore.add_images(uris=image_uris)
+
+    # Add documents
+    vectorstore.add_texts(texts=texts)
+
+    # Make retriever
+    retriever = vectorstore.as_retriever()
+
+    def resize_base64_image(base64_string, size=(128, 128)):
+        """
+        Resize an image encoded as a Base64 string.
+
+        Args:
+        base64_string (str): Base64 string of the original image.
+        size (tuple): Desired size of the image as (width, height).
+
+        Returns:
+        str: Base64 string of the resized image.
+        """
+        # Decode the Base64 string
+        img_data = base64.b64decode(base64_string)
+        img = Image.open(io.BytesIO(img_data))
+
+        # Resize the image
+        resized_img = img.resize(size, Image.LANCZOS)
+
+        # Save the resized image to a bytes buffer
+        buffered = io.BytesIO()
+        resized_img.save(buffered, format=img.format)
+
+        # Encode the resized image to Base64
+        return base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+
+    def is_base64(s):
+        """Check if a string is Base64 encoded"""
+        try:
+            return base64.b64encode(base64.b64decode(s)) == s.encode()
+        except Exception:
+            return False
+
+
+    def split_image_text_types(docs):
+        """Split numpy array images and texts"""
+        images = []
+        text = []
+        for doc in docs:
+            doc = doc.page_content  # Extract Document contents
+            if is_base64(doc):
+                # Resize image to avoid OAI server error
+                images.append(
+                    resize_base64_image(doc, size=(250, 250))
+                )  # base64 encoded str
+            else:
+                text.append(doc)
+        return {"images": images, "texts": text}
+    
+    
+    def prompt_func(data_dict):
+        # Joining the context texts into a single string
+        formatted_texts = "\n".join(data_dict["context"]["texts"])
+        messages = []
+
+        # Adding image(s) to the messages if present
+        if data_dict["context"]["images"]:
+            image_message = {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{data_dict['context']['images'][0]}"
+                },
+            }
+            messages.append(image_message)
+
+        # Adding the text message for analysis
+        text_message = {
+            "type": "text",
+            "text": (
+                """You are PersonalityGPT, a chatbot that can read personalities based off of the NEOFFI test. 
+
+    Using the NEOFFI test results of the user below in T-scores (from 0 to >80), create responses to the user's questions 
+    that enables the user to improve their personality traits below to scores above 80. Do not make the answer you give to the user too long.
+    You must respond in an casual tone without slang. Remember everything from previous conversations.
+
+    In this chat, the user will upload a screenshot or paste a past conversation they had with a friend, family member, or anyone they know. When they do,
+    you will analyze their pasted conversation and help them understand it or tell them what they can do. Make sure to answer the question that the user asks
+    you with a proper 5 sentence response.
+
+    Use this example for guidance:
+
+    User: 'What did I do wrong in this conversation with my girlfriend? Here is the pasted conversation:
+            User: Hey babe
+            Girlfriend: Hey baby
+            User: Want to hangout tonight and go out to eat? I might bring some friends along
+            Girlfriend: Sure, but can it only be us two? I want some alone time with you
+            User: No. See, this is why I hate making plans. You don't want anyone to come along and always want alone time
+            Girlfriend: Don't talk to me anymore. We're done.'
+
+    System: "It looks like you were being too rude and pushy with your girlfriend. You should be nicer and calmer, a alternative and more peaceful way than yelling.
+    
+    Next time, talk with a more peaceful voice in order to maintain good relationships with people.
+
+
+    Neuroticism = 30
+    Extraversion = 99
+    Openness = 57
+    Agreeableness = 45
+    Conscientiousness = 49
+
+    Age = 20
+
+    Using all this information, answer this question from the user: {data_dict[question]}"""
+            ),
+        }
+        messages.append(text_message)
+
+        return [HumanMessage(content=messages)]
+
+    chain = (
+        {
+            "context": retriever | RunnableLambda(split_image_text_types),
+            "question": RunnablePassthrough(),
+        }
+        | RunnableParallel({"response":prompt_func| llm | StrOutputParser(),
+                        "context": itemgetter("context"),})
+    )
+    
+    response = chain.invoke(question)
+
+    return(response['response'])
+
+
+
+
             

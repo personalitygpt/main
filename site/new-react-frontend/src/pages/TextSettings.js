@@ -1,84 +1,92 @@
-import "antd/dist/antd.min.css";
-import { Dropdown, Menu, Button } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import styles from "./TextSettingsPage.module.css";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Stack,
+  Button,
+  IconButton,
+} from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { Text } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
 
 const TextSettingsPage = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const onBackClick = () => { 
-        navigate("/");
-    };
+  const onBackClick = () => { 
+      navigate("/settings");
+  };
 
   return (
-    <div className={styles.textSettingsPage}>
-      <div className={styles.textsettingsrectangle}>
-        <div className={styles.textsettingsrectangle1} />
+    <div className="w-full relative bg-white h-[764px] overflow-hidden text-center text-[100px] text-black font-inter">
+      <div className="absolute top-[22px] left-[0px] w-[311px] h-[736px]">
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
       </div>
-      <div className={styles.textsettingsframe}>
-        <div className={styles.aa}>
-          <div className={styles.thisIsYourContainer}>Aa</div>
+      <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
+        <div className="absolute top-[96px] left-[718px] w-[162px] h-[77px]">
+          <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">
+            Aa
+          </div>
         </div>
-        <div className={styles.div}>
-          <div className={styles.div1}>^</div>
-        </div>
-        <Dropdown
-          className={styles.txtsizechange}
-          overlay={
-            <Menu>
-              {[
-                { value: "10" },
-                { value: "1" },
-                { value: "20" },
-                { value: "30" },
-              ].map((option, index) => (
-                <Menu.Item key={index}>
-                  <a onClick={(e) => e.preventDefault()}>
-                    {option.value || ""}
-                  </a>
-                </Menu.Item>
-              ))}
-            </Menu>
-          }
-          trigger={["click"]}
+        <Stack className="absolute top-[226px] left-[369px]">
+          <Menu>
+            <MenuButton
+              w="591px"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+              colorScheme="blue"
+            >
+            Text Size
+            </MenuButton>
+            <MenuList>
+              <MenuItem fontSize='lg'>10</MenuItem>
+              <MenuItem fontSize='lg'>12</MenuItem>
+              <MenuItem fontSize='lg'>14</MenuItem>
+              <MenuItem fontSize='lg'>16</MenuItem>
+              <MenuItem fontSize='lg'>20</MenuItem>
+              <MenuItem fontSize='lg'>24</MenuItem>
+              <MenuItem fontSize='lg'>30</MenuItem>
+            </MenuList>
+          </Menu>
+        </Stack>
+        <Stack className="absolute top-[342px] left-[369px]">
+          <Menu>
+            <MenuButton
+              w="591px"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+              colorScheme="blue"
+            >
+            Text Font
+            </MenuButton>
+            <MenuList>
+              <MenuItem fontSize='lg' style={{ fontFamily: 'Arial' }}>Arial</MenuItem>
+              <MenuItem fontSize='lg' style={{ fontFamily: 'Comic Sans' }}>Comic Sans</MenuItem>
+              <MenuItem fontSize='lg' style={{ fontFamily: 'Times New Roman' }}>Times New Roman</MenuItem>
+              <MenuItem fontSize='lg' style={{ fontFamily: 'Italia' }}>Italia</MenuItem>
+              <MenuItem fontSize='lg' style={{ fontFamily: 'Kadwa' }}>Kadwa</MenuItem>
+              <MenuItem fontSize='lg' style={{ fontFamily: 'Inria Sans' }}>Inria Sans</MenuItem>
+              <MenuItem fontSize='lg' style={{ fontFamily: 'Lao Muang Don' }}>Lao Muang Don</MenuItem>
+            </MenuList>
+          </Menu>
+        </Stack>
+        <Button
+          className="absolute top-[18px] left-[22px]"
+          colorScheme="blue"
+          variant="solid"
+          w="146px"
+          onClick={onBackClick}
         >
-          <Button onClick={(e) => e.preventDefault()}>
-            {`Text Size `}
-            <DownOutlined />
-          </Button>
-        </Dropdown>
-        <Dropdown
-          className={styles.txtfontchange}
-          overlay={
-            <Menu>
-              {[].map((option, index) => (
-                <Menu.Item key={index}>
-                  <a onClick={(e) => e.preventDefault()}>
-                    {option.value || ""}
-                  </a>
-                </Menu.Item>
-              ))}
-            </Menu>
-          }
-          trigger={["click"]}
-        >
-          <Button onClick={onBackClick}>
-            {`Text Font `}
-            <DownOutlined />
-          </Button>
-        </Dropdown>
-        <button className={styles.backbtntxtpg} id="backbutton">
-          <div className={styles.backbtntxtpgChild} />
-          <div className={styles.back}>back</div>
-        </button>
+          back
+        </Button>
       </div>
-      <div className={styles.textsettings}>
-        <div className={styles.thisIsYourContainer}>
-          <p className={styles.text}>{`Text `}</p>
-          <p className={styles.text}>&nbsp;</p>
-          <p className={styles.text}>&nbsp;</p>
-          <p className={styles.text}>Settings</p>
+      <div className="absolute top-[291px] left-[0px] w-[299px] h-28 text-31xl font-magra">
+        <div className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">
+          <p className="m-0">{`Text `}</p>
+          <p className="m-0">&nbsp;</p>
+          <p className="m-0">&nbsp;</p>
+          <p className="m-0">Settings</p>
         </div>
       </div>
     </div>
