@@ -1,6 +1,10 @@
+import { Input, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { OpenAI } from "openai";
 
-const DifferentTraits = () => {
+
+const DifferentTraits2 = () => {
   const navigate = useNavigate();
 
   const onLogOutClick = () => {
@@ -10,7 +14,7 @@ const DifferentTraits = () => {
   const onCommPersonalityclick = () => {
     navigate("/comm-person");
   };
-
+ 
   const onSettingsClick = () => {
     navigate("/profile");
   };
@@ -35,47 +39,126 @@ const DifferentTraits = () => {
     navigate("/different-traits");
   };
 
-  const onDifferenttraitai = () => {
-    navigate("/different-traits-2")
-  };
-
   const onAnalyzeConvo = () => {
     navigate("/analyze-conv");
   };
 
-  const onNeuroticismClick = () => {
-    alert(
-      "This trait measures the tendency to experience negative emotions such as anxiety, depression, and vulnerability. Individuals high in neuroticism may be more prone to stress and emotional instability, while those low in neuroticism tend to be more emotionally stable and resilient."
-    );
+  const onDifferenttraitinfo = () => {
+    navigate("/different-traits")
   };
 
-  const onOpennessClick = () => {
-    alert(
-      "This trait reflects a person's receptiveness to new ideas, experiences, and perspectives. Individuals high in openness tend to be imaginative, curious, and creative, often embracing unconventional ideas and engaging in intellectual pursuits. Those low in openness may be more traditional, practical, and prefer familiarity over novelty."
-    );
-  };
+  
+  const [message, setMessage] = useState("");
+  const [chats, setChats] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
 
-  const onExtraversionClick = () => {
-    alert(
-      "Extraversion refers to the extent of one's sociability, assertiveness, and tendency to seek stimulation in the company of others. People high in extraversion are outgoing, energetic, and enjoy social interactions, while those low in extraversion may prefer solitude, quiet activities, and have a more reserved demeanor."
-    );
-  };
+  const chat = async (message) => {
+    if (!message.trim()) return; // Enhanced check for an empty message
 
-  const onAgreeblenessClick = () => {
-    alert(
-      "Agreeableness measures one's tendency to be cooperative, compassionate, and empathetic towards others. Individuals high in agreeableness are generally warm, considerate, and trusting, prioritizing harmonious relationships and helping others. Those low in agreeableness may be more skeptical, competitive, and less concerned with others' well-being."
-    );
-  };
+    setIsTyping(true);
+    window.scrollTo(0, 0); // Scroll to the top
 
-  const onConsciousnessClick = () => {
-    alert(
-      "Conscientiousness reflects the degree of organization, responsibility, and self-discipline in one's behavior. People high in conscientiousness are dependable, diligent, and goal-oriented, often demonstrating strong impulse control and adherence to rules. On the other hand, individuals low in conscientiousness may be more spontaneous, careless, and struggle with procrastination or disorganization."
-    );
+    const newChat = { role: "user", content: message };
+    // Update state immediately to reflect the new chat in UI
+    setChats((prevChats) => [...prevChats, newChat]);
+
+    try {
+      // Create the prompt for the AI response
+      const prompt = `You are PersonalityGPT, a chatbot that can read personalities based off of the NEOFFI test. 
+
+      Using the NEOFFI test results of the user below in T-scores (from 0 to >80), create responses to the user's questions 
+      that enables the user to improve their personality traits below to scores above 80. Do not make the answer you give to the user too long.
+      You must respond in an casual tone without slang. Remember everything from previous conversations.
+  
+      In this chat you will explain different personality traits in detail to the user. The user will ask questions regarding a personality trait and you must answer them with at least 3 points.
+      Include the different characteristics and conditions associated with the personality trait and explain what tendencies and behaviors people with that personality trait have.
+      Keep in mind that whatever response you give should be specific to the personality trait asked about. For example if the user asked about neuroticism explain the characteristics, behavior, and conditions of a neurotic person.
+  
+      Use this example for guidance:
+  
+      User: 'I just took a test and was deemed neurotic. What does it and is this bad?'
+  
+      System: "Being deemed neurotic on a personality test means that you scored higher on the trait of neuroticism compared to other people who have taken the test. Neuroticism is one of the Big Five personality traits and is characterized by the tendency to experience negative emotions such as anxiety, depression, and stress. 
+      
+      It's important to understand that being labeled as neurotic on a personality test does not necessarily mean that there is something inherently "bad" about you. Neuroticism is a normal and natural part of the human personality, and everyone experiences negative emotions to some degree from time to time."
+  
+      Neuroticism = 30
+      Extraversion = 99
+      Openness = 57
+      Agreeableness = 45
+      Conscientiousness = 49
+  
+      Age = 20
+  
+      
+      \n\nHuman: ${message}\nAI:`;
+      
+      // Get the response from OpenAI
+      const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "system", content: prompt}],
+        temperature: 0.7,
+        max_tokens: 450,
+      });
+
+      // Check if response and response.choices exist to avoid type error
+      if (response && response.choices) {
+        const aiText = response.choices[0].message.content;
+        const aiResponse = { role: "ai", content: aiText };
+        // Ensure AI response is not empty and then update the chats
+        if (aiResponse.content) {
+          setChats((prevChats) => [...prevChats, aiResponse]);
+        }
+      } else {
+        console.error("OpenAI response is undefined or does not contain a message.");
+      }
+    } catch (error) {
+      console.error("Failed to fetch OpenAI response:", error);
+    } finally {
+      setIsTyping(false);
+      window.scrollTo(0, 0); // Scroll to the top
+    }
   };
 
   return (
-    <div className="w-full relative bg-white h-[757px] overflow-hidden text-center text-31xl text-black font-inter">
-      <div className="absolute top-[0px] left-[0px] w-[1280px] h-[758px]">
+    <div className="relative bg-white w-full h-[758px] overflow-hidden text-center text-base text-black font-inter">
+      <div className="absolute h-[96.17%] w-[24.3%] top-[3.56%] right-[75.7%] bottom-[0.26%] left-[0%] bg-lightsteelblue" />
+      <div className="absolute top-[22px] left-[0px] box-border w-[1280px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
+        <div className="absolute h-[54.21%] w-[2.5%] top-[5.71%] right-[0%] bottom-[40.08%] left-[97.5%] bg-gainsboro" />
+        <div className="absolute top-[51px] left-[342px] w-[902px] h-[72px] text-21xl">
+          <button className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[21px] inline-block">New Chat</button>
+        </div>
+        <div className="absolute top-[100px] left-[441px] w-[696px] h-[248px]" id="chatbox">
+         {chats.map((chat, index) => (
+           <div key={index} className={`p-4 m-2 rounded-lg ${chat.role === "user" ? "bg-lightsteelblue" : "bg-royalblue"}`}>
+             <p className="text-2xl text-black">{typeof chat.content === 'string' ? chat.content : JSON.stringify(chat.content)}</p>
+           </div>
+         )).reverse()}
+       </div>
+       <div className="absolute top-[640px] left-[400px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
+         <form onSubmit={(e) => {
+           e.preventDefault();
+           const message = e.target.elements.messageInput.value;
+           chat(message);
+           e.target.elements.messageInput.value = ''; // Clear input after sending
+         }}>
+           <Input
+               name="messageInput"
+               className="bg-[transparent] absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]"
+               placeholder="Type Here"
+               size="lg"
+               width="696px"
+               w="696px"
+             />
+           <Button
+               className="left-[105%]"
+               colorScheme='blue'
+               type="submit"
+             >
+             Send
+           </Button>
+         </form>
+       </div>
         <img
           className="absolute h-[97.1%] w-[24.3%] top-[2.9%] right-[75.7%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full"
           alt=""
@@ -181,9 +264,9 @@ const DifferentTraits = () => {
               alt=""
               src="/more-than@2x.png"
             />
-            <div className="absolute h-[5.16%] w-[12.5%] top-[7.34%] right-[4.3%] bottom-[87.5%] left-[83.2%] rounded-9xl bg-gainsboro" onClick = {onDifferenttraitai}/>
+            <div className="absolute h-[5.16%] w-[12.5%] top-[7.34%] right-[4.3%] bottom-[87.5%] left-[83.2%] rounded-9xl bg-gainsboro" onClick={onDifferenttraitinfo}/>
             <div className="absolute h-[4.48%] w-[6.41%] top-[8.02%] left-[86.25%] text-xl text-left inline-block">
-              Go to AI
+              Go to info page
             </div>
           </div>
           <div className="absolute h-[13.59%] w-[7.81%] top-[46.6%] right-[17.34%] bottom-[39.81%] left-[74.84%] bg-gainsboro" />
@@ -209,66 +292,6 @@ const DifferentTraits = () => {
           alt=""
           src="/different-traits.svg"
         />
-        <img
-          className="absolute h-[19.53%] w-[32.66%] top-[20.58%] right-[40.31%] bottom-[59.89%] left-[27.03%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/chat-bubble-5.svg"
-          onClick={onNeuroticismClick}
-        />
-        <div
-          className="absolute h-[11.87%] w-[27.81%] top-[28.89%] left-[29.61%] tracking-[-0.32px] leading-[21px] text-[45px] inline-block"
-          onClick={onNeuroticismClick}
-        >
-          Neuroticism
-        </div>
-        <img
-          className="absolute h-[19.53%] w-[32.66%] top-[20.58%] right-[4.3%] bottom-[59.89%] left-[63.05%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/chat-bubble-5.svg"
-          onClick={onOpennessClick}
-        />
-        <div
-          className="absolute h-[11.87%] w-[27.81%] top-[28.5%] left-[65.78%] tracking-[-0.32px] leading-[21px] text-[45px] inline-block"
-          onClick={onOpennessClick}
-        >
-          Openness
-        </div>
-        <img
-          className="absolute h-[19.53%] w-[32.66%] top-[46.17%] right-[4.3%] bottom-[34.3%] left-[63.05%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/chat-bubble-5.svg"
-          onClick={onAgreeblenessClick}
-        />
-        <div
-          className="absolute h-[11.87%] w-[27.81%] top-[53.83%] left-[66.09%] tracking-[-0.32px] leading-[21px] text-[45px] inline-block"
-          onClick={onAgreeblenessClick}
-        >
-          Agreeableness
-        </div>
-        <img
-          className="absolute h-[19.53%] w-[32.66%] top-[72.56%] right-[21.41%] bottom-[7.92%] left-[45.94%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/chat-bubble-5.svg"
-          onClick={onConsciousnessClick}
-        />
-        <div
-          className="absolute h-[5.87%] w-[34.81%] top-[78.55%] left-[45.2%] tracking-[-0.32px] leading-[47px] text-[45px] inline-block"
-          onClick={onConsciousnessClick}
-        >
-          Conscientiousness
-        </div>
-        <img
-          className="absolute h-[19.53%] w-[32.66%] top-[45.51%] right-[40.31%] bottom-[34.96%] left-[27.03%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/chat-bubble-5.svg"
-          onClick={onExtraversionClick}
-        />
-        <div
-          className="absolute h-[11.87%] w-[27.81%] top-[54.09%] left-[29.61%] tracking-[-0.32px] leading-[17px] text-[45px] inline-block"
-          onClick={onExtraversionClick}
-        >
-          Extraversion
-        </div>
       </div>
       <img
         className="absolute top-[56px] left-[18px] w-[276px] h-[69px]"
@@ -280,4 +303,5 @@ const DifferentTraits = () => {
   );
 };
 
-export default DifferentTraits;
+export default DifferentTraits2;
+ 

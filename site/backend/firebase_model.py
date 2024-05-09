@@ -1,9 +1,9 @@
 import firebase_admin
 from firebase_admin import db
 
-cred_obj = firebase_admin.credentials.Certificate('./personality-gpt-firebase-adminsdk-iz50i-9d2bcd8d14.json')
+cred_obj = firebase_admin.credentials.Certificate('./personalitygpt-firebase-adminsdk-n4zzw-11895eb9b4.json')
 default_app = firebase_admin.initialize_app(cred_obj, {
-	'databaseURL': "https://personality-gpt-default-rtdb.firebaseio.com/"
+	'databaseURL': "https://personalitygpt-default-rtdb.firebaseio.com/"
 	})
 
 ref = db.reference("/")

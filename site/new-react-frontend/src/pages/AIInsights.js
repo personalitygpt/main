@@ -17,7 +17,7 @@ const AIInsights = () => {
   const onLogOutClick = () => {
     navigate("/");
   };
-
+ 
   const onCommPersonalityclick = () => {
     navigate('/comm-person');
   };
