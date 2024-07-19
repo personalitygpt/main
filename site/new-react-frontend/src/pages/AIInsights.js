@@ -4,7 +4,7 @@ import { useState } from "react";
 import { OpenAI } from "openai";
 
 // Initialize the OpenAI model with the API key
-const openai = new OpenAI({apiKey: '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', dangerouslyAllowBrowser: true});
+const openai = new OpenAI({apiKey: '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', dangerouslyAllowBrowser: true});
 
 const AIInsights = () => {
 
@@ -17,7 +17,7 @@ const AIInsights = () => {
   const onLogOutClick = () => {
     navigate("/");
   };
- 
+
   const onCommPersonalityclick = () => {
     navigate('/comm-person');
   };
@@ -32,7 +32,7 @@ const AIInsights = () => {
 
   const onRedFlagsClick = () => {
     navigate("/red-flags")
-  };
+  }; 
 
   const onViewHistory = () => {
     navigate("/view-hist")
@@ -280,4 +280,3 @@ const AIInsights = () => {
 };
 
 export default AIInsights;
-
