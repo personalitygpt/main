@@ -22,6 +22,8 @@ import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
 import ChangePassword from "./pages/ChangePasswordPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
+import DifferentTraits2 from "./pages/DifferentTraitspart2";
+import RedFlagsPart2 from "./pages/FindingRedFlagspart2";
 
 function App() {
   const action = useNavigationType();
@@ -37,7 +39,7 @@ function App() {
   useEffect(() => {
     let title = "";
     let metaDescription = "";
-
+ 
     switch (pathname) {
       case "/":
         title = "";
@@ -107,6 +109,13 @@ function App() {
               title = "";
               metaDescription = "";
               break;
+      case "/different-traits-2":
+              title = "";
+              metaDescription = "";
+              break;
+      case "/red-flags-2":
+              title = "";
+              metaDescription = "";
     }
 
     if (title) {
@@ -143,6 +152,8 @@ function App() {
         path="/different-traits"
         element={<DifferentTraits />}
       />
+      <Route path="/different-traits-2" element={<DifferentTraits2 />} />
+      <Route path="/red-flags-2" element={<RedFlagsPart2 />} />
       <Route
         path="/analyze-conv"
         element={<AnalyzeAConversation />}

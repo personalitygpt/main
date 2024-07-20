@@ -19,7 +19,7 @@ function SignUpPage() {
     })
     .then(function (response) {
          console.log(response);
-        navigate("/login-page");
+        navigate("/quiz");
     })
     .catch(function (error) {
         console.log(error, 'error');

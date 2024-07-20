@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { OpenAI } from "openai";
 
-const FindingRedFlags = () => {
 
+const DifferentTraits2 = () => {
   const navigate = useNavigate();
 
   const onLogOutClick = () => {
     navigate("/");
   };
- 
+
   const onCommPersonalityclick = () => {
-    navigate('/comm-person');
+    navigate("/comm-person");
   };
  
   const onSettingsClick = () => {
@@ -20,7 +20,7 @@ const FindingRedFlags = () => {
   };
 
   const onRedFlagsClick = () => {
-    navigate("/red-flags")
+    navigate("/red-flags");
   };
 
   const onAIInsightsClick = () => {
@@ -28,31 +28,137 @@ const FindingRedFlags = () => {
   };
 
   const onLearningMeaningDifferentPhrases = () => {
-    navigate("/learning-the-meaning-of-different-phrases")
+    navigate("/learning-the-meaning-of-different-phrases");
   };
 
   const onViewHistory = () => {
-    navigate("/view-hist")
+    navigate("/view-hist");
   };
 
   const onDifferentTraits = () => {
-    navigate("/different-traits")
+    navigate("/different-traits");
   };
 
   const onAnalyzeConvo = () => {
-    navigate('/analyze-conv')
+    navigate("/analyze-conv");
   };
 
-  const onRedFlags2 = () => {
-    navigate("/red-flags-2")
+  const onDifferenttraitinfo = () => {
+    navigate("/different-traits")
   };
+  
+  const [message, setMessage] = useState("");
+  const [chats, setChats] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
 
+  const chat = async (message) => {
+    if (!message.trim()) return; // Enhanced check for an empty message
 
+    setIsTyping(true);
+    window.scrollTo(0, 0); // Scroll to the top
+
+    const newChat = { role: "user", content: message };
+    // Update state immediately to reflect the new chat in UI
+    setChats((prevChats) => [...prevChats, newChat]);
+
+    try {
+      // Create the prompt for the AI response
+      const prompt = `You are PersonalityGPT, a chatbot that can read personalities based off of the NEOFFI test. 
+
+      Using the NEOFFI test results of the user below in T-scores (from 0 to >80), create responses to the user's questions 
+      that enables the user to improve their personality traits below to scores above 80. Do not make the answer you give to the user too long.
+      You must respond in an casual tone without slang. Remember everything from previous conversations.
+  
+      In this chat you will identify if there are any red flags in the relationship. the user will provide a copy-pasted conversation they have had with a friend or anyone they know and will ask you to identify red flags and for any advice you can give them.
+      make sure to be accurate and help them identify the red flags. At the end of each response, tell them that it would always be best to seek expert advice for finding red flags. Answer the prompt in 2-3 sentence answers and make sure is it not too long.
+
+      Use this example for guidance:
+  
+      User: 'Can you identify any red flags about me in this conversation:
+        User: Hey babe
+        Girlfriend: Hey baby
+        User: Want to hangout tonight and go out to eat? I might bring some friends along
+        Girlfriend: Sure, but can it only be us two? I want some alone time with you
+        User: No. See, this is why I hate making plans. You don't want anyone to come along and always want alone time
+        Girlfriend: Don't talk to me anymore. We're done.'
+
+      System: In this conversation, a red flag I have identified is that you are being too forcing and controlling, wanting your ways and not being flexible. It would be best if you and your partner can 
+      come to an agreement and make a comrpomise. Remember, it is always best to seek out prefessional advice.
+
+  
+      Neuroticism = 30
+      Extraversion = 99
+      Openness = 57
+      Agreeableness = 45
+      Conscientiousness = 49
+  
+      Age = 20
+  
+      
+      \n\nHuman: ${message}\nAI:`;
+      
+      // Get the response from OpenAI
+      const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "system", content: prompt}],
+        temperature: 0.7,
+        max_tokens: 450,
+      });
+
+      // Check if response and response.choices exist to avoid type error
+      if (response && response.choices) {
+        const aiText = response.choices[0].message.content;
+        const aiResponse = { role: "ai", content: aiText };
+        // Ensure AI response is not empty and then update the chats
+        if (aiResponse.content) {
+          setChats((prevChats) => [...prevChats, aiResponse]);
+        }
+      } else {
+        console.error("OpenAI response is undefined or does not contain a message.");
+      }
+    } catch (error) {
+      console.error("Failed to fetch OpenAI response:", error);
+    } finally {
+      setIsTyping(false);
+      window.scrollTo(0, 0); // Scroll to the top
+    }
+  };
   return (
     <div className="relative bg-white w-full h-[762px] overflow-hidden text-center text-base text-black font-inter">
       <div className="absolute top-[22px] left-[0px] w-[311px] h-[736px]">
         <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
       </div>
+      <div className="absolute top-[100px] left-[441px] w-[696px] h-[248px]" id="chatbox">
+         {chats.map((chat, index) => (
+           <div key={index} className={`p-4 m-2 rounded-lg ${chat.role === "user" ? "bg-lightsteelblue" : "bg-royalblue"}`}>
+             <p className="text-2xl text-black">{typeof chat.content === 'string' ? chat.content : JSON.stringify(chat.content)}</p>
+           </div>
+         )).reverse()}
+       </div>
+       <div className="absolute top-[640px] left-[400px] w-[696px] h-[45px] text-left text-6xl text-dimgray">
+         <form onSubmit={(e) => {
+           e.preventDefault();
+           const message = e.target.elements.messageInput.value;
+           chat(message);
+           e.target.elements.messageInput.value = ''; // Clear input after sending
+         }}>
+           <Input
+               name="messageInput"
+               className="bg-[transparent] absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]"
+               placeholder="Type Here"
+               size="lg"
+               width="696px"
+               w="696px"
+             />
+           <Button
+               className="left-[105%]"
+               colorScheme='blue'
+               type="submit"
+             >
+             Send
+           </Button>
+         </form>
+        </div>
       <div className="absolute top-[0px] left-[0px] w-[1347px] h-[22px]" />
       <div className="absolute top-[11px] left-[0px] box-border w-[1347px] h-[736px] overflow-hidden border-[3px] border-solid border-black">
         <div className="absolute top-[71px] left-[1315px] w-8 h-[399px]">
@@ -180,29 +286,9 @@ const FindingRedFlags = () => {
             src="/more-than@2x.png"
           />
         </div>
-        <div className="absolute top-[306px] left-[383px] text-xl tracking-[-0.32px] leading-[32px] text-left inline-block w-[918px] h-[108px]">
-          <ul className="m-0 font-inherit text-inherit pl-[27px]">
-            <li className="mb-0">{`Lack of communication `}</li>
-            <li className="mb-0">
-              This could indicate that the person you are trying to reach is not
-              interested in talking to you
-            </li>
-            <li className="mb-0">{`One word answers `}</li>
-            <li className="mb-0">
-              This indicates that the person is either uninterested in
-              communication or has been annoyed by you in some way
-            </li>
-            <li className="mb-0">{`Passive Aggressive Comments `}</li>
-            <li className="mb-0">{`This is a common indication that someone has been annoyed with previous actions of yours and that is now affecting their mood. `}</li>
-          </ul>
-          <p className="m-0">&nbsp;</p>
-          <p className="m-0">&nbsp;</p>
-          <p className="m-0">&nbsp;</p>
-          <p className="m-0">{`If you would like to seek further advice based on your current situation, please visit the New Chat window in the sidebar on the left. `}</p>
-        </div>
-        <div className="absolute h-[5.16%] w-[11.88%] top-[13.04%] right-[6.31%] bottom-[81.79%] left-[81.81%] rounded-9xl bg-gainsboro" onclick = {onRedFlags2}/>
+        <div className="absolute h-[5.16%] w-[11.88%] top-[13.04%] right-[6.31%] bottom-[81.79%] left-[81.81%] rounded-9xl bg-gainsboro" onclick = {onRedFlagsClick}/>
         <div className="absolute h-[4.48%] w-[6.09%] top-[13.73%] left-[84.71%] text-xl text-left inline-block">
-          Go to AI
+          Go to info page
         </div>
       </div>
     </div>

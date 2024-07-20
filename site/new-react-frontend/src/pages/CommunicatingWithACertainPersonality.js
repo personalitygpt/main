@@ -3,7 +3,7 @@ import { Input, Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import { OpenAI } from 'openai';
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
   dangerouslyAllowBrowser: true,
 });
 const CommuncateWithACertainPersonality = () => {
@@ -265,10 +265,3 @@ AI:`;
   );
 };
 export default CommuncateWithACertainPersonality;
-
-
-
-
-
-
-

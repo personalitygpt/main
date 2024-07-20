@@ -26,7 +26,7 @@ function LoginPage() {
         .then(function (response) {
             console.log(response);
             //console.log(response.data);
-            navigate("/");
+            navigate("/ai-insights");
         })
         .catch(function (error) {
             console.log(error, 'error');
