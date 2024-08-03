@@ -21,108 +21,62 @@ const LandingPage = () => {
   };
 
   return (
-    <button className="cursor-pointer [border:none] p-0 bg-white w-full relative h-[760px] overflow-hidden">
+    <div className="w-full relative bg-ghostwhite h-[760px] overflow-hidden text-center text-6xl text-black font-inter">
+      <img
+        className="absolute top-[0px] left-[0px] w-[1280px] h-[180px]"
+        alt=""
+        src="/upperrect.svg"
+      />
       <div className="absolute top-[24px] left-[0px] w-[1280px] h-[736px] overflow-hidden">
-        <div className="absolute top-[0px] left-[4px] w-[404px] h-[759px]">
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-lightsteelblue" />
-        </div>
-        <div className="absolute top-[48px] left-[455px] w-[615px] h-[574px]">
-          <div className="absolute h-[61.48%] w-full top-[20.14%] right-[-17.12%] bottom-[18.38%] left-[17.12%] bg-black" />
-          <img
-            className="absolute h-full w-[71.64%] top-[0%] right-[-2.94%] bottom-[0%] left-[31.3%] max-w-full overflow-hidden max-h-full object-cover"
-            alt=""
-            src="/image-17@2x.png"
-          />
-          <div className="absolute h-[17.16%] w-[43.53%] top-[-17.16%] right-[92.41%] bottom-[100%] left-[-35.93%] hidden">
-            <div
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue cursor-pointer"
-              onClick={onRectangleClick}
-            />
-            <i className="absolute top-[26.6%] left-[14.61%] text-6xl font-bold font-inter text-black text-left">
-              Contact us
-            </i>
-          </div>
-        </div>
-        <i className="absolute top-[575px] left-[500px] text-6xl font-bold font-inter text-black text-center">
-          <p className="m-0">PersonalityGPT is a AI that can give you</p>
+        <b className="absolute top-[598px] left-[306px]">
+          <p className="m-0">PersonalityGPT is an AI tool that can give you</p>
           <p className="m-0">
             personalized responses to help solve misunderstandings
           </p>
           <p className="m-0">
             and close the communication gap in everyday texting!
           </p>
-        </i>
-        <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[31px] left-[429px] w-[178px] h-16" onClick={onSignUpClick}>
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue" />
-          <i className="absolute top-[28.13%] left-[23.6%] text-6xl font-bold font-inter text-black text-left">
-            Sign Up
-          </i>
-        </button>
-        <button
-          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[31px] left-[1086px] w-[178px] h-16"
-          id="loginbutton"
-          onClick={onLogInClick}
-        >
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue" />
-            <i className="absolute top-[28.13%] left-[23.6%] text-6xl font-bold font-inter text-black text-left">
-              Log In
-            </i>
-          </div>
-        </button>
-        <div className="absolute top-[79px] left-[-538px] w-[1484px] h-[51px]">
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <i className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[15px] inline-block font-bold font-inter text-black text-center [text-shadow:1px_0_0_#000,_0_1px_0_#000,_-1px_0_0_#000,_0_-1px_0_#000]">
-              <p className="m-0 text-21xl">How to use:</p>
-              <p className="m-0 text-31xl">&nbsp;</p>
-              <p className="m-0 text-31xl">&nbsp;</p>
-            </i>
-          </div>
+        </b>
+        <div className="absolute top-[31px] left-[306px] w-[178px] h-16">
+          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[0px] left-[0px] w-[178px] h-16">
+            <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-cornflowerblue" />
+            <b className="absolute top-[28.13%] left-[23.6%] text-6xl font-inter text-black text-left">
+              Sign Up
+            </b>
+          </button>
         </div>
-        <div className="absolute top-[231px] left-[-57px] w-[465px] h-[51px]">
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <i className="absolute h-full w-full top-[0%] left-[0%] text-11xl tracking-[-0.32px] leading-[9px] inline-block font-medium font-inter text-black text-center">
-              <ol className="m-0 font-inherit text-inherit pl-10">
-                <li>Create Account</li>
-              </ol>
-            </i>
-          </div>
+        <div className="absolute top-[31px] left-[826px] w-[178px] h-16">
+          <button
+            className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[0px] left-[0px] w-[178px] h-16"
+            id="loginbutton"
+          >
+            <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
+              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
+                <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-cornflowerblue" />
+                <b className="absolute top-[26.56%] left-[29.21%] text-6xl font-inter text-black text-left">
+                  Log In
+                </b>
+              </div>
+            </div>
+          </button>
         </div>
-        <div className="absolute top-[345px] left-[0px] w-[408px] h-[51px]">
+        <div className="absolute top-[156px] left-[5px] w-[408px] h-[51px] text-11xl">
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <i className="absolute h-full w-full top-[0%] left-[0%] text-11xl tracking-[-0.32px] leading-[9px] inline-block font-medium font-inter text-black text-center">
+            <i className="absolute h-full w-full top-[0%] left-[0%] tracking-[-0.32px] leading-[9px] hidden font-medium">
               <ol className="m-0 font-inherit text-inherit pl-10">
                 <li>Take a Personality Test</li>
               </ol>
             </i>
           </div>
         </div>
-        <div className="absolute top-[459px] left-[-17px] w-[408px] h-[51px]">
-          <i className="absolute h-full w-full top-[0%] left-[0%] text-11xl tracking-[-0.32px] leading-[9px] inline-block font-medium font-inter text-black text-center">
-            <ol className="m-0 font-inherit text-inherit pl-10">
-              <li>Get answers</li>
-            </ol>
-          </i>
-        </div>
-        <div className="absolute top-[620px] left-[0px] w-[408px] h-[51px]">
-          <div className="absolute h-full w-full top-[0%] left-[0%] text-11xl tracking-[-0.32px] leading-[9px] font-inter text-black text-center inline-block [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
-            IT’S THAT EASY!
-          </div>
-        </div>
-        <button
-          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[31px] left-[758px] w-[178px] h-16"
-          id="loginbutton"
-          onClick={onNewChatClick}
-        >
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%]">
-            <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-2xl bg-lightsteelblue" />
-            <i className="absolute top-[28.13%] left-[23.6%] text-6xl font-bold font-inter text-black text-left">
-              New Chat
-            </i>
-          </div>
-        </button>
+        <div className="absolute top-[186px] left-[368px] box-border w-[544px] h-[389px] border-[5px] border-dashed border-black" />
       </div>
-    </button>
+      <img
+        className="absolute top-[228px] left-[383px] w-[514px] h-[352px] object-cover"
+        alt=""
+        src="/logo@2x.png"
+      />
+    </div>
   );
 };
 
